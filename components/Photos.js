@@ -45,7 +45,7 @@ const Photos = () => {
 
     
     <View style={styles.next}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photos')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Birthday')}>
             <View >
                 <Text style={styles.buttonText}>Next</Text>
             </View>
