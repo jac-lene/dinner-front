@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     justifyContent: 'space-between',
-    alignItems: 'center',
+    // alignItems: 'center',
   },
   progBarCont: {
     flexDirection: 'row',
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   input: {
     alignSelf: 'stretch',
     height: 45,
-    borderColor: 'black',
+    borderColor: 'grey',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,

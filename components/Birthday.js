@@ -15,10 +15,15 @@ const Birthday = () => {
         <View style={styles.progBar2}></View>
       </View>
 
+      
+      
+
     <View style={styles.body}>
 
+      <View style={styles.headerStyle}>
       <Text style={styles.header}>When is your birthday?</Text>
       <Text style={styles.subHeader}>You must be 18+ to create an account.</Text>
+      </View>
 
       <View style={styles.birthdayForm}>
 
@@ -44,7 +49,7 @@ const Birthday = () => {
     
 
     <View style={styles.next}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photos')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Gender')}>
             <View >
                 <Text style={styles.buttonText}>Next</Text>
             </View>
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     justifyContent: 'space-between',
-    alignItems: 'center',
+    // alignItems: 'center',
   },
   progBarCont: {
     flexDirection: 'row',
@@ -96,7 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#C9B9FB',
   },
   body: {
-    marginHorizontal: 40,
+    marginHorizontal: 45,
     // paddingBottom: 300,
     // backgroundColor: 'yellow'
 },
@@ -104,14 +109,14 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     textAlign: 'left',
-    marginRight: 150,
-    // backgroundColor: 'orange'
+    // backgroundColor: 'orange',
+    paddingRight: 80,
   },
   subHeader: {
     fontSize: 18,
     textAlign: 'left',
     marginVertical: 10,
-    marginRight: 50,
+    // marginRight: 50,
   },
   next: {
     paddingBottom: 150,

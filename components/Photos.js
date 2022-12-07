@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     justifyContent: 'space-between',
-    alignItems: 'center',
+    // alignItems: 'center',
   },
   progBarCont: {
     flexDirection: 'row',
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   },
   body: {
     marginHorizontal: 40,
+    marginTop: 150,
     // paddingBottom: 300,
     // backgroundColor: 'yellow'
 },
