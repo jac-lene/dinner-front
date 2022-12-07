@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
@@ -9,15 +9,28 @@ const Profile = () => {
     <SafeAreaView 
     style={styles.appContainer}
     >
+    <ScrollView>
+
+      <View style={styles.mainHeader}></View>
 
  
 
 
-    <View style={styles.body}>
+    <View 
+    style={styles.body}
+    >
 
+      <View style={styles.verifyCont}>
+      <Image source={require('../assets/images/verify.png')} />
+      <Text style={styles.verify}>Verify my profile</Text>
+      </View>
+
+      <View style={styles.divider}>
+        <View style={styles.lines}></View>
+      </View>
    
 
-    <View>
+        <View>
       
       <Text style={styles.header}>My photos</Text>
       <Text style={styles.subHeader}>Add some images of yourself</Text>
@@ -44,18 +57,18 @@ const Profile = () => {
       
       </View>
 
-    </View>
 
-    <View style={styles.auth}>
-            <View style={styles.divider}>
-              <View style={styles.lines}></View>
-            </View>
+
+    <View style={styles.divider}>
+      <View style={styles.lines}></View>
     </View>
+    
 
     <View style={styles.section}>
       <Text style={styles.header}>Link other accounts</Text>
       <Text style={styles.subHeader}>(optional)</Text>
       </View>
+    </View>
 
     <View style={styles.auth}>
           
@@ -86,7 +99,7 @@ const Profile = () => {
             </TouchableOpacity>
             
       </View>
-
+      </ScrollView>
     </SafeAreaView>
   )
 }
@@ -202,14 +215,13 @@ auth: {
 },
 divider: {
   flexDirection: 'row',
-  marginHorizontal: 45,
-  // backgroundColor: 'yellow'
 },
 lines: {
   flex: 1,
   height: .7,
   alignSelf: 'stretch',
-  // marginHorizontal: 5,
+  marginTop: 15,
+  marginBottom: 20,
   backgroundColor: 'black',
 },
 section: {
@@ -217,6 +229,15 @@ section: {
   // justifyContent: 'flex-start',
   alignItems: 'center',
   marginHorizontal: 45,
+},
+verify: {
+  fontSize: 20,
+  fontWeight: 'bold',
+  marginLeft: 5,
+},
+verifyCont: {
+  flexDirection: 'row',
+  alignItems: 'center',
 }
 });
 
