@@ -19,10 +19,17 @@ const Profile = () => {
     style={styles.body}
     >
 
-      <View style={styles.verifyCont}>
+
+<View style={styles.verifyCont}>
+      <View style={styles.verifyImg}>
       <Image source={require('../assets/images/verify.png')} />
-      <Text style={styles.verify}>Verify my profile</Text>
+      <Text style={styles.verifyText}>Verify my profile</Text>
       </View>
+      <View  style={styles.verifyImg}>
+      <Image source={require('../assets/images/forward.png')} /> 
+      </View>
+</View>
+  
 
       <View style={styles.divider}>
         <View style={styles.lines}></View>
@@ -38,7 +45,7 @@ const Profile = () => {
       <View style={styles.imageForm}>
 
 <View style={styles.image}>
-  <Text style={styles.imageText}>+</Text>
+  <Image source={require('../assets/images/profPic.png')} />
 </View>
 
 </View>
@@ -52,7 +59,7 @@ const Profile = () => {
       
       </View>
 
-        <View style={styles.smallForm}>
+        <View >
         <View style={styles.input}><Text style={styles.inputText}>I have always been an extrovert and love having meaningful conversation with like-minded individuals over cup of coffee or dinner. For the last few years I have avoided holiday family dinners as I feel ostracized by my family. I feel there is a lack of community during Holiday season which I really have been craving. </Text></View>
         </View>
 
@@ -65,7 +72,7 @@ const Profile = () => {
       <View style={styles.basic}>
           <View style={styles.basicsRow}>
             <View style={styles.basicsRow}>
-              <Image source={require('../assets/images/verify.png')} />
+              <Image source={require('../assets/images/nonbin.png')} />
               <Text style={styles.basicText}>Nonbinary (They/Them)</Text>
             </View>
             <Text style={styles.subHeader}>Change</Text>
@@ -77,7 +84,7 @@ const Profile = () => {
 
           <View style={styles.basicsRow}>
             <View style={styles.basicsRow}>
-              <Image source={require('../assets/images/verify.png')} />
+              <Image source={require('../assets/images/location.png')} />
               <Text style={styles.basicText}>San Francisco, CA</Text>
             </View>
             <Text style={styles.subHeader}>Change</Text>
@@ -89,7 +96,7 @@ const Profile = () => {
 
           <View style={styles.basicsRow}>
             <View style={styles.basicsRow}>
-              <Image source={require('../assets/images/verify.png')} />
+              <Image source={require('../assets/images/ethnicity.png')} />
               <Text style={styles.basicText}>Ethnicity</Text>
             </View>
             <Text style={styles.subHeader}>Add</Text>
@@ -239,9 +246,6 @@ buttonTextSocial: {
     fontSize: 20,
     color: 'black',
 },
-auth: {
-  // backgroundColor: 'yellow'
-},
 divider: {
   flexDirection: 'row',
 },
@@ -260,12 +264,17 @@ section: {
 sectionCont: {
 
 },
-verify: {
+verifyText: {
   fontSize: 20,
   fontWeight: 'bold',
   marginLeft: 5,
 },
 verifyCont: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+},
+verifyImg: {
   flexDirection: 'row',
   alignItems: 'center',
   marginTop: 20,
@@ -275,13 +284,12 @@ imageForm: {
   alignItems:'center',
 },
 image: {
-height: 164,
-width: 164,
-backgroundColor: '#D9D9D9',
+height: 144,
+width: 144,
 justifyContent:'center',
 alignItems:'center',
 borderRadius: 10,
-marginVertical: 30,
+marginVertical: 20,
 },
 imageText: {
 fontSize: 50,

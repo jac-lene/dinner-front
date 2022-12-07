@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, StatusBar, SafeAreaView, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, StatusBar, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useFonts } from 'expo-font'
@@ -19,8 +19,15 @@ const Splash = () => {
   return (
     <SafeAreaView style={styles.appContainer}>
 
+      <View style={styles.logo}>
+        <Image source={require('../assets/images/logo.png')} />
+      </View>
+
     { carousel === 0 ?  
         <><TouchableOpacity style={styles.body} onPress={() => { setCarousel(1); } }>
+          <View style={styles.illos}>
+             <Image source={require('../assets/images/host.png')} />
+          </View>
           <Text style={[styles.header, { fontFamily: 'PoppinsReg' }]}>Host an Event</Text>
           <Text style={styles.text}>Have an open seat at the table?</Text>
           <View style={styles.dotContainer}>
@@ -39,6 +46,9 @@ const Splash = () => {
     : null }
     { carousel === 1 ?  
         <><TouchableOpacity style={styles.body} onPress={() => { setCarousel(2); } }>
+          <View >
+             <Image source={require('../assets/images/seat.png')} />
+          </View>
           <Text style={styles.header}>Grab a Seat</Text>
           <Text style={styles.text}>Maybe you’re looking for that extra seat?</Text>
           <View style={styles.dotContainer}>
@@ -57,6 +67,9 @@ const Splash = () => {
     : null }
     { carousel === 2 ?  
         <><TouchableOpacity style={styles.body} onPress={() => { setCarousel(0); } }>
+          <View >
+             <Image source={require('../assets/images/home.png')} />
+          </View>
           <Text style={styles.header}>Share the Experience</Text>
           <Text style={styles.text}>Whether you want to display your hospitality or provide great company, we have your back in finding the right connection.</Text>
           <View style={styles.dotContainer}>
@@ -90,7 +103,6 @@ const Splash = () => {
 const styles = StyleSheet.create({
     appContainer: {
       flex: 1,
-      justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#E8DEF8'
     },
@@ -104,6 +116,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 40,
+        marginTop: 60,
     },
     text: {
       fontSize: 20,
@@ -135,7 +148,7 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#6750A4',
+        backgroundColor: '#9747FF',
         borderRadius: 50,
         height: 45,
         marginHorizontal: 40,
@@ -143,6 +156,12 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 20,
         color: '#fff',
+    },
+    logo: {
+      marginTop: 90,
+    },
+    illos: {
+      marginVertical: 40,
     }
   });
 
