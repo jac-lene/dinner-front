@@ -9,7 +9,7 @@ const Choose = () => {
     <SafeAreaView 
     // style={styles.appContainer}
     >
-      
+
       <View style={styles.progBarCont}>
         <View style={styles.progBar1}></View>
         <View style={styles.progBar2}></View>
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     marginVertical: 25,
     paddingLeft: 170,
-    borderRadius: 50,
+    borderRadiusRight: 50,
     backgroundColor: '#C9B9FB',
   },
   body: {
@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     textAlign: 'left',
     marginVertical: 10,
+    marginRight: 80,
   },
   buttonText: {
       flex: 1,
