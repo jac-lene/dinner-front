@@ -12,28 +12,22 @@ const Splash = () => {
     <SafeAreaView style={styles.appContainer}>
 
     { carousel === 0 ?  
-    <View style={styles.body}>
-    <Text style={styles.header}>Host an Event</Text>
-        <TouchableOpacity  onPress={() => { setCarousel(1) }} >
+        <TouchableOpacity style={styles.body} onPress={() => { setCarousel(1) }} >
+            <Text style={styles.header}>Host an Event</Text>
             <Text style={styles.text} >Have an open seat at the table?</Text>
         </TouchableOpacity> 
-    </View>
     : null }
     { carousel === 1 ?  
-    <View style={styles.body}>
-    <Text style={styles.header}>Grab a Seat</Text>
-        <TouchableOpacity  onPress={() => { setCarousel(2) }} >
+        <TouchableOpacity style={styles.body}  onPress={() => { setCarousel(2) }} >
+            <Text style={styles.header}>Grab a Seat</Text>
             <Text style={styles.text} >Maybe you’re looking for that extra seat? </Text>
         </TouchableOpacity> 
-    </View>
     : null }
     { carousel === 2 ?  
-    <View style={styles.body}>
-    <Text style={styles.header}>Share the Experience</Text>
-        <TouchableOpacity  onPress={() => { setCarousel(0) }} >
+        <TouchableOpacity style={styles.body} onPress={() => { setCarousel(0) }} >
+            <Text style={styles.header}>Share the Experience</Text>
             <Text style={styles.text} >Whether you want to display your hospitality or provide great company, we have your back in finding the right connection.</Text>
         </TouchableOpacity> 
-    </View>
     : null }
     
     <View style={styles.dotContainer}>
@@ -100,7 +94,7 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'grey',
+        backgroundColor: '#6750A4',
         borderRadius: 50,
         height: 45,
         marginHorizontal: 40,

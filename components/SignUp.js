@@ -95,12 +95,24 @@ const styles = StyleSheet.create({
       alignSelf: 'stretch',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'grey',
       borderRadius: 50,
       height: 45,
       marginHorizontal: 45,
       marginVertical: 15,
+      backgroundColor: '#6750A4',
     },
+  buttonSU: {
+    backgroundColor: '#6750A4',
+  },
+  buttonG: {
+    backgroundColor: '#6750A4',
+  },
+  buttonF: {
+    backgroundColor: '#6750A4',
+  },
+  buttonA: {
+    backgroundColor: '#6750A4',
+  },
   buttonText: {
       fontSize: 20,
       color: '#fff',
