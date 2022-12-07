@@ -18,20 +18,32 @@ const Photos = () => {
     <View style={styles.body}>
 
       <Text style={styles.header}>Add your picture</Text>
+      <Text style={styles.subHeader}>Please use a picture of just yourself. Your host would love to see who they are planning with!</Text>
 
-      <View style={styles.nameForm}>
+      <View style={styles.imageForm}>
 
-        <Text style={styles.formText}>First Name</Text>
-        <View style={styles.input}></View>
-        <Text style={styles.formText}>Last Name</Text>
-        <View style={styles.input}></View>
+        <View style={styles.image}>
+          <Text style={styles.imageText}>+</Text>
+        </View>
 
-    </View>
+      </View>
+
+      <TouchableOpacity style={styles.buttonSocial} onPress={() => navigation.navigate('Photos')}>
+      <View >
+          <Text style={styles.buttonTextSocial}>Add from Instagram</Text>
+      </View>
+      </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttonSocial} onPress={() => navigation.navigate('Photos')}>
+      <View >
+          <Text style={styles.buttonTextSocial}>Add from Facebook</Text>
+      </View>
+      </TouchableOpacity>
+
 
     </View>
 
     
-
     <View style={styles.next}>
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photos')}>
             <View >
@@ -96,6 +108,12 @@ const styles = StyleSheet.create({
     marginRight: 200,
     // backgroundColor: 'orange'
   },
+  subHeader: {
+    fontSize: 18,
+    textAlign: 'left',
+    marginVertical: 10,
+    marginRight: 50,
+  },
   next: {
     paddingBottom: 150,
     paddingLeft: 280,
@@ -110,27 +128,43 @@ const styles = StyleSheet.create({
       width: 100,
       backgroundColor: '#6750A4',
     },
+  buttonSocial: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 25,
+      height: 45,
+      marginVertical: 10,
+      backgroundColor: '#C9B9FB',
+    },
   buttonText: {
       fontSize: 20,
       fontWeight: 'semibold',
       color: '#fff',
   },
-  nameForm: {
-    paddingVertical: 40,
+  buttonTextSocial: {
+      fontSize: 20,
+      fontWeight: 'semibold',
+      color: 'black',
   },
-  input: {
-    alignSelf: 'stretch',
-    height: 45,
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
+  imageForm: {
+      justifyContent:'center',
+      alignItems:'center',
   },
-  formText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    paddingVertical: 10,
+  image: {
+    height: 164,
+    width: 164,
+    backgroundColor: '#D9D9D9',
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius: 10,
+    marginVertical: 30,
+  },
+  imageText: {
+    fontSize: 50,
+    color: '#6750A4',
+    
   }
+ 
 });
 
 
