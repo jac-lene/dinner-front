@@ -9,7 +9,7 @@ const Choose = () => {
     <SafeAreaView 
     // style={styles.appContainer}
     >
-  
+      
       <View style={styles.progBarCont}>
         <View style={styles.progBar1}></View>
         <View style={styles.progBar2}></View>
@@ -20,10 +20,6 @@ const Choose = () => {
       <Text style={styles.header}>Which one are you?</Text>
       <Text style={styles.subHeader}>Help us determine how you will navigate the app.</Text>
 
-    
-
-  
-    
     <View>
             <TouchableOpacity style={[styles.button, styles.buttonHost]} onPress={() => navigation.navigate('Name')}>
             <View style={styles.buttonText}>
@@ -69,6 +65,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'stretch',
     marginVertical: 25,
+    borderRadius: 50,
     backgroundColor: '#6856C4',
   },
   progBar2: {
@@ -79,6 +76,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     marginVertical: 25,
     paddingLeft: 170,
+    borderRadius: 50,
     backgroundColor: '#C9B9FB',
   },
   body: {
