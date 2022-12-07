@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button, SafeAreaView, TouchableOpacity, YellowBox } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
@@ -24,7 +24,7 @@ const SignUp = () => {
   
     
     <View style={styles.auth}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Phone')}>
+            <TouchableOpacity style={[styles.button, styles.buttonSignUp]} onPress={() => navigation.navigate('Choose')}>
             <View>
                 <Text  style={styles.buttonText}>Sign up</Text>
             </View>
@@ -36,19 +36,19 @@ const SignUp = () => {
               <View style={styles.lines}></View>
             </View>
         
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Phone')}>
+            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
-                <Text  style={styles.buttonText}>Continue with Google</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Google</Text>
             </View>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Phone')}>
+            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
-                <Text  style={styles.buttonText}>Continue with Facebook</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Facebook</Text>
             </View>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Phone')}>
+            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
-                <Text  style={styles.buttonText}>Continue with Apple</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Apple</Text>
             </View>
             </TouchableOpacity>
         </View>
@@ -99,23 +99,20 @@ const styles = StyleSheet.create({
       height: 45,
       marginHorizontal: 45,
       marginVertical: 15,
-      backgroundColor: '#6750A4',
-    },
-  buttonSU: {
+    }, 
+  buttonSignUp: {
     backgroundColor: '#6750A4',
   },
-  buttonG: {
-    backgroundColor: '#6750A4',
-  },
-  buttonF: {
-    backgroundColor: '#6750A4',
-  },
-  buttonA: {
-    backgroundColor: '#6750A4',
+  buttonSocial: {
+    backgroundColor: '#E8DEF8',
   },
   buttonText: {
       fontSize: 20,
       color: '#fff',
+  },
+  buttonTextSocial: {
+      fontSize: 20,
+      color: 'black',
   },
   auth: {
     flex: 1,

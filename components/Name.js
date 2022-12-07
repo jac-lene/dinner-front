@@ -2,7 +2,7 @@ import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-na
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-const Birthday = () => {
+const Name = () => {
   const navigation = useNavigation()
 
   return (
@@ -15,32 +15,16 @@ const Birthday = () => {
         <View style={styles.progBar2}></View>
       </View>
 
-      
-      
-
     <View style={styles.body}>
 
-      <View style={styles.headerStyle}>
-      <Text style={styles.header}>When is your birthday?</Text>
-      <Text style={styles.subHeader}>You must be 18+ to create an account.</Text>
-      </View>
+      <Text style={styles.header}>What is your name?</Text>
 
-      <View style={styles.birthdayForm}>
+      <View style={styles.nameForm}>
 
-        <View style={styles.smallForm}>
-        <Text style={styles.formText}>Month</Text>
-        <View style={styles.input}><Text style={styles.inputText}>03</Text></View>
-        </View>
-
-        <View style={styles.smallForm}>
-        <Text style={styles.formText}>Day</Text>
-        <View style={styles.input}><Text style={styles.inputText}>12</Text></View>
-        </View>
-
-        <View style={styles.smallForm}>
-        <Text style={styles.formText}>Year</Text>
-        <View style={styles.input}><Text style={styles.inputText}>1992</Text></View>
-        </View>
+        <Text style={styles.formText}>First Name</Text>
+        <View style={styles.input}></View>
+        <Text style={styles.formText}>Last Name</Text>
+        <View style={styles.input}></View>
 
     </View>
 
@@ -49,7 +33,7 @@ const Birthday = () => {
     
 
     <View style={styles.next}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Gender')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photos')}>
             <View >
                 <Text style={styles.buttonText}>Next</Text>
             </View>
@@ -86,7 +70,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     marginVertical: 25,
     borderRadius: 50,
-    paddingRight: 130,
     backgroundColor: '#6856C4',
   },
   progBar2: {
@@ -96,12 +79,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'stretch',
     marginVertical: 25,
-    paddingLeft: 0,
+    paddingLeft: 10,
     borderRadius: 50,
     backgroundColor: '#C9B9FB',
   },
   body: {
-    marginHorizontal: 45,
+    marginHorizontal: 40,
     // paddingBottom: 300,
     // backgroundColor: 'yellow'
 },
@@ -109,14 +92,8 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     textAlign: 'left',
-    // backgroundColor: 'orange',
-    paddingRight: 80,
-  },
-  subHeader: {
-    fontSize: 18,
-    textAlign: 'left',
-    marginVertical: 10,
-    // marginRight: 50,
+    marginRight: 200,
+    // backgroundColor: 'orange'
   },
   next: {
     paddingBottom: 150,
@@ -137,36 +114,22 @@ const styles = StyleSheet.create({
       fontWeight: 'semibold',
       color: '#fff',
   },
-  birthdayForm: {
+  nameForm: {
     paddingVertical: 40,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   input: {
     alignSelf: 'stretch',
-    height: 40,
+    height: 45,
+    borderColor: 'grey',
+    borderWidth: 1,
     borderRadius: 8,
-    marginVertical: 10,
-    paddingHorizontal: 40,
-    backgroundColor: '#C9B9FB',
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginBottom: 10,
   },
   formText: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  inputText: {
-    fontSize: 20,
-    textAlign: 'center',
-    position: 'absolute',
-    zIndex: 999,
-  },
-  smallForm: {
-    paddingHorizontal: 5,
+    paddingVertical: 10,
   }
 });
 
-export default Birthday
+export default Name
