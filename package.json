@@ -1,4 +1,13 @@
 {
+  "name": "dinnerapp",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
     "@react-navigation/native": "^6.0.16",
@@ -19,5 +28,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
-  }
+  },
+  "private": true
 }
