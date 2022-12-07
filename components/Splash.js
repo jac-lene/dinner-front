@@ -12,35 +12,52 @@ const Splash = () => {
     <SafeAreaView style={styles.appContainer}>
     <StatusBar style="light" />
 
-    <View style={styles.titleCont}>
-        <Text style={styles.title}>Host an Event</Text>
     
-<View style={styles.textCont}>
+
 
     { carousel === 0 ?  
+    <View style={styles.titleCont}>
+    <Text style={styles.title}>Host an Event</Text>
+    <View style={styles.textCont}>
     <View style={styles.titleCont} >
         <TouchableOpacity  onPress={() => { setCarousel(1) }} >
             <Text style={styles.text} > Have an open seat at the table? </Text>
         </TouchableOpacity> 
     </View> 
+    </View>
+    </View>
     : null }
   
 
-    { carousel === 1? <View style={styles.titleCont} >
-        <TouchableOpacity style={styles.text} onPress={() => { setCarousel(2) }}  >
-            <Text style={styles.text}> fdsafdsa </Text>
-        </TouchableOpacity> 
-    </View> : null }
+    { carousel === 1 ? 
+     <View style={styles.titleCont}>
+     <Text style={styles.title}>Grab a Seat</Text>
+     <View style={styles.textCont}>
+     <View style={styles.titleCont} >
+         <TouchableOpacity  onPress={() => { setCarousel(2) }} >
+             <Text style={styles.text} > Maybe you’re looking for that extra seat?  </Text>
+         </TouchableOpacity> 
+     </View> 
+     </View>
+     </View>
+    : null }
 
-    { carousel === 2 ? <View style={styles.titleCont}>
-        <TouchableOpacity style={styles.text} onPress={() => { setCarousel(0) }}  >
-            <Text style={styles.text}> something else </Text>
-        </TouchableOpacity> 
-    </View> : null }
+    { carousel === 2 ? 
+     <View style={styles.titleCont}>
+     <Text style={styles.title}>Share the Experience</Text>
+     <View style={styles.textCont}>
+     <View style={styles.titleCont} >
+         <TouchableOpacity  onPress={() => { setCarousel(0) }} >
+             <Text style={styles.text} > Whether you want to display your hospitality or provide great company, we have your back in finding the right connection. </Text>
+         </TouchableOpacity> 
+     </View> 
+     </View>
+     </View>
+    : null }
 
 
-    </View>
-    </View>
+    
+    
     
     <View style={styles.buttonCont}>
         <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
