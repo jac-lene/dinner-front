@@ -19,7 +19,18 @@ const Name = () => {
 
       <Text style={styles.header}>What is your name?</Text>
 
+      <View style={styles.nameForm}>
+
+        <Text style={styles.formText}>First Name</Text>
+        <View style={styles.input}></View>
+        <Text style={styles.formText}>Last Name</Text>
+        <View style={styles.input}></View>
+
     </View>
+
+    </View>
+
+    
 
     <View style={styles.next}>
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photos')}>
@@ -69,7 +80,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     marginVertical: 25,
     paddingLeft: 10,
-    borderRadiusRight: 50,
+    borderRadius: 50,
     backgroundColor: '#C9B9FB',
   },
   body: {
@@ -103,6 +114,22 @@ const styles = StyleSheet.create({
       fontWeight: 'semibold',
       color: '#fff',
   },
+  nameForm: {
+    paddingVertical: 40,
+  },
+  input: {
+    alignSelf: 'stretch',
+    height: 45,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  formText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingVertical: 10,
+  }
 });
 
 export default Name
