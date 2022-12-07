@@ -7,7 +7,7 @@ const Chat = () => {
 
   const getChats = async () => {
     try {
-      const response = await fetch('http://localhost:8000/chats/2/');
+      const response = await fetch(process.env.BASE_URL + 'allchats');
       const json = await response.json();
       setData(json)
     } catch (error) {
