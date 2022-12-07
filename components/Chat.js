@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, FlatList, ActivityIndicator } from 'react-native'
 import React, {useEffect, useState} from 'react'
 
 const Chat = () => {
@@ -16,12 +16,24 @@ const Chat = () => {
       setLoading(false);
     }
   }
-  
+
+  useEffect(() => {
+    getChats();
+  }, []);
+
   return (
     <View>
-      <Text>Chat</Text>
+      {isLoading ? <ActivityIndicator/> : (
+        <FlatList
+          data={data}
+          keyExtractor={({id}, index) => id}
+          renderItem={({ item }) => (
+            <Text>Chat</Text>
+          )}
+        />
+      )}
     </View>
-  )
-}
+  );
+};
 
-export default Chat
+export default Chat;
