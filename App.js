@@ -4,9 +4,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import axios from 'axios'
 import StackNavigator from './stacks/StackNavigator'
 import AuthProvider from './context/AuthContext';
+import { useFonts } from 'expo-font';
+import { SplashScreen } from 'expo-splash-screen'
+import React, { useState } from 'react';
 
+let poppins = { 'PoppinsReg': require('./assets/fonts/Poppins-Regular.otf') }
 
 export default function App() {
+ 
+ const [isLoaded] = useFonts(poppins)
+
+ if (!isLoaded) {
+  return null
+ }
 
 return (
     <AuthProvider>

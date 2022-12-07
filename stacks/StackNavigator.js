@@ -20,6 +20,7 @@ import DinnerDetails from '../components/DinnerDetails';
 import Menu from '../components/Menu';
 import Chat from '../components/Chat';
 import Splash from '../components/Splash';
+import Name from '../components/Name';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,34 +32,38 @@ const StackNavigator = () => {
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="Phone" component={Phone} />
             <Stack.Screen name="Verify" component={Verify}/>
-            <Stack.Screen name="Choose" component={Choose}/>
         </Stack.Group>
         
         <Stack.Group>
-            <Stack.Screen name="Welcome" component={Welcome} />
+            <Stack.Screen name="Choose" component={Choose}/>
+            <Stack.Screen name="Name" component={Name}/>
             <Stack.Screen name="Photos" component={Photos} />
             <Stack.Screen name="Birthday" component={Birthday} />
             <Stack.Screen name="Gender" component={Gender} />
             <Stack.Screen name="Location" component={Location} />
             <Stack.Screen name="Profile" component={Profile} />
-            <Stack.Screen name="AboutMe" component={AboutMe} />
-           
         </Stack.Group>
+
         <Stack.Group>
             <Stack.Screen name='ProfVer' component={ProfVerify}/>
         </Stack.Group>
+
         <Stack.Group>
             <Stack.Screen name='AllDinners' component={AllDinners}/>
             <Stack.Screen name='OneDinner' component={OneDinner}/>
             <Stack.Screen name='Interested' component={Interested}/>
         </Stack.Group>
+
         <Stack.Group>
             <Stack.Screen name='Confirmed' component={Confirmed}/>
             <Stack.Screen name='DinnerDetails' component={DinnerDetails}/>
             <Stack.Screen name='Menu' component={Menu}/>
         </Stack.Group>
 
+        <Stack.Screen name="Welcome" component={Welcome} />
+
         <Stack.Screen name='Chat' component={Chat}/>
+        
       </Stack.Navigator>
   )
 }
