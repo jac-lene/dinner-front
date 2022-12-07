@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button, SafeAreaView, TouchableOpacity, YellowBox } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
