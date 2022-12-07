@@ -17,6 +17,8 @@ const Splash = () => {
         <Text style={styles.title}>Welcome to Fam!</Text>
     </View>
 
+  
+
     { carousel === 0 ?   <View style={styles.titleCont} onPress={() => { setCarousel(1) }}>
         <Text style={styles.text}>It’s nice to see you Fam, thanks for coming by. Whatever time of year it may be, it’s nice to be able to sit down and share a meal and some quality time with others. </Text>
     </View> : null }
