@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   divText: {
     fontSize: 20,
-    fontWeight: 'semibold',
+    fontWeight: 'semibold', 
   },
   lines: {
     flex: 1,
