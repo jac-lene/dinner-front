@@ -1,19 +1,27 @@
 import { View, Text, StyleSheet, StatusBar, SafeAreaView, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { useFonts } from 'expo-font'
+import { useCallback } from 'react';
 
 
 const Splash = () => {
     const navigation = useNavigation()
     const [carousel, setCarousel] = useState(0)
 
+    const [fontsLoaded] = useFonts({
+        'PoppinsReg': require('../assets/fonts/Poppins-Regular.otf'),
+      });
+      if (!fontsLoaded) {
+        return null;
+      }
 
   return (
     <SafeAreaView style={styles.appContainer}>
 
     { carousel === 0 ?  
         <TouchableOpacity style={styles.body} onPress={() => { setCarousel(1) }} >
-            <Text style={styles.header}>Host an Event</Text>
+            <Text style={[styles.header, {fontFamily: 'PoppinsReg'}]}>Host an Event</Text>
             <Text style={styles.text} >Have an open seat at the table?</Text>
         </TouchableOpacity> 
     : null }
@@ -40,11 +48,11 @@ const Splash = () => {
     </View>
     
     
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUp')}>
+    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUp')}>
         <View>
             <Text  style={styles.buttonText}>Sign Up</Text>
         </View>
-        </TouchableOpacity>
+    </TouchableOpacity>
     
        
     </SafeAreaView>
@@ -61,6 +69,7 @@ const styles = StyleSheet.create({
       fontSize: 40,
       fontWeight: 'bold',
       height: 240,
+      fontFamily: 'PoppinsReg',
     },
     body: {
         flex: 1,
