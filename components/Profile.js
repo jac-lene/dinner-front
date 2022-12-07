@@ -36,7 +36,13 @@ const Profile = () => {
       <Text style={styles.subHeader}>Add some images of yourself</Text>
       </View>
 
-    
+      <View style={styles.imageForm}>
+
+<View style={styles.image}>
+  <Text style={styles.imageText}>+</Text>
+</View>
+
+</View>
 
 
 
@@ -57,18 +63,52 @@ const Profile = () => {
       
       </View>
 
+      <View style={styles.basic}>
+          <View style={styles.basicsRow}>
+            <View style={styles.basicsRow}>
+              <Image source={require('../assets/images/verify.png')} />
+              <Text style={styles.basicText}>Nonbinary (They/Them)</Text>
+            </View>
+            <Text style={styles.subHeader}>Change</Text>
+          </View>
 
+          <View style={styles.divider}>
+      <View style={styles.lines}></View>
+        </View>
 
-    <View style={styles.divider}>
+          <View style={styles.basicsRow}>
+            <View style={styles.basicsRow}>
+              <Image source={require('../assets/images/verify.png')} />
+              <Text style={styles.basicText}>San Francisco, CA</Text>
+            </View>
+            <Text style={styles.subHeader}>Change</Text>
+          </View>
+
+          <View style={styles.divider}>
       <View style={styles.lines}></View>
     </View>
-    
 
+          <View style={styles.basicsRow}>
+            <View style={styles.basicsRow}>
+              <Image source={require('../assets/images/verify.png')} />
+              <Text style={styles.basicText}>Ethnicity</Text>
+            </View>
+            <Text style={styles.subHeader}>Add</Text>
+          </View>
+
+          <View style={styles.divider}>
+      <View style={styles.lines}></View>
+    </View>
+
+      </View>
+    
+<View>
     <View style={styles.section}>
       <Text style={styles.header}>Link other accounts</Text>
       <Text style={styles.subHeader}>(optional)</Text>
       </View>
     </View>
+</View>
 
     <View style={styles.auth}>
           
@@ -141,6 +181,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: 'bold',
     marginRight: 5,
+    paddingVertical:5,
     // backgroundColor: 'orange'
   },
   subHeader: {
@@ -168,8 +209,9 @@ const styles = StyleSheet.create({
   },
   input: {
     alignSelf: 'stretch',
-    borderRadius: 10,
-    marginVertical: 10,
+    borderRadius: 15,
+    marginVertical: 20,
+    marginHorizontal: 5,
     borderColor: 'grey',
     borderWidth: 1,
     justifyContent: 'center',
@@ -238,6 +280,35 @@ verify: {
 verifyCont: {
   flexDirection: 'row',
   alignItems: 'center',
+},
+imageForm: {
+  justifyContent:'center',
+  alignItems:'center',
+},
+image: {
+height: 164,
+width: 164,
+backgroundColor: '#D9D9D9',
+justifyContent:'center',
+alignItems:'center',
+borderRadius: 10,
+marginVertical: 30,
+},
+imageText: {
+fontSize: 50,
+color: '#6750A4',
+},
+basic: {
+  marginTop: 20,
+},
+basicsRow: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+},
+basicText: {
+  fontSize: 22,
+  marginHorizontal: 8,
 }
 });
 
