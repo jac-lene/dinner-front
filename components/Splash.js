@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, StatusBar, SafeAreaView, Button } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, StyleSheet, StatusBar, SafeAreaView, TouchableOpacity } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
+
 
 const Splash = () => {
     const navigation = useNavigation()
@@ -11,36 +12,45 @@ const Splash = () => {
     <SafeAreaView style={styles.appContainer}>
     <StatusBar style="light" />
 
-    <View style={styles.appContainer}>
-
     <View style={styles.titleCont}>
-        <Text style={styles.title}>Welcome to Fam!</Text>
-    </View>
-
-  
-
-    { carousel === 0 ?   <View style={styles.titleCont} onPress={() => { setCarousel(1) }}>
-        <Text style={styles.text}>It’s nice to see you Fam, thanks for coming by. Whatever time of year it may be, it’s nice to be able to sit down and share a meal and some quality time with others. </Text>
-    </View> : null }
-  
-
-    { carousel === 1? <View style={styles.titleCont} onPress={() => { setCarousel(2) }}>
-        <Text style={styles.text}>We want to help connect you with others who are looking for a similar experience, but might not have the people available.  </Text>
-    </View> : null }
-
-    { carousel === 2 ? <View style={styles.titleCont} onPress={() => { setCarousel(0) }}>
-        <Text style={styles.text}> Whether you want to display your hospitality or provide great company, we have your back in finding the right connection.  </Text>
-    </View> : null }
+        <Text style={styles.title}>Host an Event</Text>
     
-    <View>
-        <Button title='Sign up' onPress={() => navigation.navigate('SignUp')}/>
+<View style={styles.textCont}>
+
+    { carousel === 0 ?  
+    <View style={styles.titleCont} >
+        <TouchableOpacity  onPress={() => { setCarousel(1) }} >
+            <Text style={styles.text} > Have an open seat at the table? </Text>
+        </TouchableOpacity> 
+    </View> 
+    : null }
+  
+
+    { carousel === 1? <View style={styles.titleCont} >
+        <TouchableOpacity style={styles.text} onPress={() => { setCarousel(2) }}  >
+            <Text style={styles.text}> fdsafdsa </Text>
+        </TouchableOpacity> 
+    </View> : null }
+
+    { carousel === 2 ? <View style={styles.titleCont}>
+        <TouchableOpacity style={styles.text} onPress={() => { setCarousel(0) }}  >
+            <Text style={styles.text}> something else </Text>
+        </TouchableOpacity> 
+    </View> : null }
+
+
+    </View>
+    </View>
+    
+    <View style={styles.buttonCont}>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+            <Text style={styles.button}>Sign Up</Text>
+        </TouchableOpacity>
     </View>
        
-        
-    </View>
     </SafeAreaView>
   )
-}
+};
 
 const styles = StyleSheet.create({
     appContainer: {
@@ -48,23 +58,41 @@ const styles = StyleSheet.create({
       paddingHorizontal: 30,
     },
     titleCont: {
-        flex: 4,
+        flex: 5,
     },
     title: {
-      fontSize: 50,
+    //   flex: 2,
+      fontSize: 40,
+      fontWeight: 'bold',
       paddingTop: 180,
       textAlign: 'center',
       paddingHorizontal: 60,
     },
     text: {
-      fontSize: 17,
+      fontSize: 19,
       textAlign: 'center',
     },
-    circle: {
-        width: 44,
-        height: 44,
-        borderRadius: 44/2
-     },
+    textCont: {
+        paddingTop: 210,
+        flex: 1, 
+        alignItems: 'center',
+        justifyContent: 'center', //Centered horizontally
+        alignItems: 'center', //Centered vertically
+    },
+      button: {
+        backgroundColor: 'grey',
+        fontSize: 19,
+        color: '#fff',
+        textAlign: 'center',
+        paddingVertical: 8,
+        borderRadius: 50,
+        height: 40,
+      },
+      buttonCont: {
+        flex: 2,
+        borderRadius: 10,
+        paddingTop: 0,
+      },
   });
 
 export default Splash
