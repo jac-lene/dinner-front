@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Button, SafeAreaView, TouchableOpacity, YellowBox } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
 
 const SignUp = () => {
@@ -36,11 +37,30 @@ const SignUp = () => {
               <View style={styles.lines}></View>
             </View>
         
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Phone')}>
+            {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Phone')}>
             <View>
                 <Text  style={styles.buttonText}>Continue with Google</Text>
             </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+
+            <Button title={'Sign in with Google'} onPress={() => {
+              GoogleSignin.configure({
+                  webClientId: '723187836491-cvtd0470hr03dpb2nvqn9d4j50jh402a.apps.googleusercontent.com',
+              });
+              GoogleSignin.hasPlayServices().then((hasPlayService) => {
+                  if (hasPlayService) {
+                    GoogleSignin.signIn().then((userInfo) => {
+                      console.log(JSON.stringify(userInfo))
+                    }).catch((e) => {
+                      console.log("ERROR IS: " + JSON.stringify(e));
+                  })
+                }
+              }).catch((e) => {
+                console.log("ERROR IS: " + JSON.stringify(e));
+              })
+
+            }} />
+
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Phone')}>
             <View>
                 <Text  style={styles.buttonText}>Continue with Facebook</Text>
