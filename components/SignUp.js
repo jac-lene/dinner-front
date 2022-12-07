@@ -1,11 +1,77 @@
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
-import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+import { useEffect, useState } from 'react';
+// import { GoogleSigninButton, GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+// import { WEB_CLIENT_ID } from '../utils/keys';
+
+
 
 
 const SignUp = () => {
   const navigation = useNavigation()
+
+  // const [loggedIn, setLoggedIn] = useState(false);
+  // const [userInfo, setUserInfo] = useState([]);
+
+
+  
+  // function configureGoogleSignin() {
+  //   GoogleSignin.configure({
+  //     scopes: ['email'],
+  //     webClientId: WEB_CLIENT_ID,
+  //     offlineAccess: true
+  //   });
+  //  }
+
+  // useEffect(() => {
+  //   configureGoogleSignin();
+  //  }, []);
+  
+  // async function signIn() {
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     const userInfo = await GoogleSignin.signIn();
+  //     setUserInfo(userInfo);
+  //     setLoggedIn(true);
+  //   } catch (error) {
+  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+  //       Alert.alert('Process Cancelled');
+  //     } else if (error.code === statusCodes.IN_PROGRESS){
+  //       Alert.alert('Signin in progress');
+  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+  //       Alert.alert('Play services are not available')
+  //     } else {
+  //       Alert.alert('Something went wrong...', error.toString());
+  //     }
+  //   }
+  //  }
+  
+  // async function signOut() {
+  //   try {
+  //     await GoogleSignin.revokeAccess();
+  //     await GoogleSignin.signOut();
+  //     setIsLoggedIn(false);
+  //     setUserInfo([]);
+  //   } catch (error) {
+  //     Alert.alert('Something went wrong...', error.toString());
+  //   }
+  //  }
+  
+  // async function getCurrentUserInfo() {
+  //   try {
+  //     const userInfo = await GoogleSignin.signInSilently();
+  //     setUserInfo(userInfo);
+  //   } catch (error) {
+  //     if (error.code === statusCodes.SIGN_IN_REQUIRED) {
+  //       Alert.alert('Please sign in');
+  //       setIsLoggedIn(false);
+  //     } else {
+  //       Alert.alert('Something went wrong...', error.toString());
+  //       setIsLoggedIn(false);
+  //     }
+  //   }
+  //  }
 
   return (
     <SafeAreaView style={styles.appContainer}>
@@ -36,30 +102,24 @@ const SignUp = () => {
               <Text style={styles.divText}>or</Text>
               <View style={styles.lines}></View>
             </View>
+
+            {/* <View style={styles.container}>
+              <GoogleSigninButton
+                style={styles.signInButton}
+                size={GoogleSigninButton.Size.Wide}
+                color={GoogleSigninButton.Color.Dark}
+                onPress = {() => signIn()}
+
+              />
+            </View> */}
+
+
         
             <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
                 <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Google</Text>
             </View>
             </TouchableOpacity> 
-
-            <Button title={'Sign in with Google'} onPress={() => {
-              GoogleSignin.configure({
-                  webClientId: '723187836491-cvtd0470hr03dpb2nvqn9d4j50jh402a.apps.googleusercontent.com',
-              });
-              GoogleSignin.hasPlayServices().then((hasPlayService) => {
-                  if (hasPlayService) {
-                    GoogleSignin.signIn().then((userInfo) => {
-                      console.log(JSON.stringify(userInfo))
-                    }).catch((e) => {
-                      console.log("ERROR IS: " + JSON.stringify(e));
-                  })
-                }
-              }).catch((e) => {
-                console.log("ERROR IS: " + JSON.stringify(e));
-              })
-
-            }} />
 
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Phone')}>
             </TouchableOpacity>
@@ -168,7 +228,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginVertical: 25,
     backgroundColor: 'black',
-  }
+  },
+  // container: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center'
+  // },
+  // signInButton: {
+  //   width: 200,
+  //   height: 50
+  // }
 });
 
 export default SignUp
