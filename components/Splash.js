@@ -45,11 +45,13 @@ const Splash = () => {
         </TouchableOpacity>
     </View>
     
-    <View style={styles.button}>
-        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
+    
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignUp')}>
+        <View>
             <Text  style={styles.buttonText}>Sign Up</Text>
+        </View>
         </TouchableOpacity>
-    </View>
+    
        
     </SafeAreaView>
   )
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'grey',
         borderRadius: 50,
-        height: 40,
+        height: 45,
         marginHorizontal: 40,
         marginBottom: 220,
       },
