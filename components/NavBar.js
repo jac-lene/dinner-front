@@ -25,7 +25,7 @@ const NavBar = () => {
         <Image source={require('../assets/images/Icon-chat.png')}/>
         </TouchableOpacity>
             
-        <TouchableOpacity onPress={() => navigation.navigate('AllDinners')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
         <Image source={require('../assets/images/Icon-cal.png')}/>
         </TouchableOpacity>
 

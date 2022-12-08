@@ -27,6 +27,7 @@ import NavBar from '../components/NavBar';
 import NewProfile from '../components/NewProfile';
 import ProfileView from '../components/ProfileView';
 import Messages from '../components/Messages';
+import Calendar from '../components/Calendar';
 
 const Stack = createNativeStackNavigator();
 
@@ -72,6 +73,7 @@ const StackNavigator = ( props ) => {
         </Stack.Group>
 
         <Stack.Screen name='ProfileView' component={ProfileView}/>
+        <Stack.Screen name='Calendar' component={Calendar}/>
 
        
 

@@ -110,7 +110,7 @@ const Chat = () => {
       <TextInput style={styles.detailsBold}>Enter your message here</TextInput>
     </View>
     
-      <TouchableOpacity onPress={() => navigation.navigate('Confirmed')}>
+      <TouchableOpacity onPress={() => navigation.navigate('DinnerDetails')}>
     <View style={styles.interest}>
       <Text style={styles.interestText}>Send</Text>
     </View>
