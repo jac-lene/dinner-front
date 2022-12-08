@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
       height: 242,
     },
     cardCont2: {
-      backgroundColor: 'rgba(218, 206, 239, 0.15)',
+      backgroundColor: 'rgba(218, 206, 239, 0.4)',
       flexDirection: 'row',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 3,
       },
-      
+
   });
 
 export default DinnerCard

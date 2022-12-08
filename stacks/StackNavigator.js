@@ -24,6 +24,8 @@ import Register from '../components/Register';
 import Login from '../components/Login';
 import SplashREAL from '../components/SplashREAL';
 import NavBar from '../components/NavBar';
+import ProfileView from '../components/ProfileView';
+import Messages from '../components/Messages';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,15 +33,14 @@ const StackNavigator = ( props ) => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
 
-        <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
-
-        {/* <Stack.Screen name="NavBar" component={NavBar} /> */}
+        <Stack.Screen name='Messages' component={Messages} />
 
         <Stack.Screen name="SplashScreen" component={SplashREAL} />
 
         <Stack.Group>
             <Stack.Screen name="Start" component={Splash} />
             <Stack.Screen name="SignUp" component={SignUp} />
+            <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Phone" component={Phone} />
             <Stack.Screen name="Verify" component={Verify}/>
         </Stack.Group>
@@ -47,7 +48,6 @@ const StackNavigator = ( props ) => {
         <Stack.Group>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Choose" component={Choose}/>
-            <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Name" component={Name}/>
             <Stack.Screen name="Photos" component={Photos} />
             <Stack.Screen name="Birthday" component={Birthday} />
@@ -59,7 +59,7 @@ const StackNavigator = ( props ) => {
         <Stack.Screen name="Welcome" component={Welcome} />
 
         <Stack.Group>
-           
+            <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
             <Stack.Screen name='OneDinner' component={OneDinner}/>
             <Stack.Screen name='Interested' component={Interested}/>
         </Stack.Group>
@@ -70,7 +70,7 @@ const StackNavigator = ( props ) => {
             <Stack.Screen name='Menu' component={Menu}/>
         </Stack.Group>
 
-        <Stack.Screen name='ProfVer' component={ProfVerify}/>
+        <Stack.Screen name='ProfileView' component={ProfileView}/>
 
         <Stack.Screen name='Chat' component={Chat}/>
 

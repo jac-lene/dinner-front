@@ -25,7 +25,7 @@ const AllDinners = ( props ) => {
 
 { filter ? <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
       <View style={styles.filterCont}>
-      <View  style={styles.filter}>
+      <View style={styles.filter}>
           <Image source={require('../assets/images/tinyarrow.png')} />
           <Text style={styles.filtertext}>New</Text>
       </View>
@@ -47,7 +47,7 @@ const AllDinners = ( props ) => {
       
 
       <View>
-    <TouchableOpacity onPress={() => navigation.navigate('Start')}>
+    <TouchableOpacity onPress={() => navigation.navigate('OneDinner')}>
       <DinnerCard />
     </TouchableOpacity>
       <DinnerCard />
