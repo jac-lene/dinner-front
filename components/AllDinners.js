@@ -47,7 +47,7 @@ const AllDinners = ( props ) => {
       
 
       <View>
-    <TouchableOpacity onPress={() => navigation.navigate('Start')}>
+    <TouchableOpacity onPress={() => navigation.navigate('OneDinner')}>
       <DinnerCard />
     </TouchableOpacity>
       <DinnerCard />

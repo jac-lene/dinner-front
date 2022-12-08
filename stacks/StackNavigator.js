@@ -25,12 +25,15 @@ import Login from '../components/Login';
 import SplashREAL from '../components/SplashREAL';
 import NavBar from '../components/NavBar';
 import ProfileView from '../components/ProfileView';
+import Messages from '../components/Messages';
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = ( props ) => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
+
+        <Stack.Screen name='Messages' component={Messages} />
 
         <Stack.Screen name="SplashScreen" component={SplashREAL} />
 
