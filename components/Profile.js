@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
       height: 45,
       marginVertical: 35,
       width: 100,
-      backgroundColor: '#6750A4',
+      backgroundColor: '#9747FF',
     },
   nextButtonText: {
       fontSize: 20,

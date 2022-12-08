@@ -21,14 +21,18 @@ import Menu from '../components/Menu';
 import Chat from '../components/Chat';
 import Splash from '../components/Splash';
 import Name from '../components/Name';
+import SplashREAL from '../components/SplashREAL';
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
+
+        <Stack.Screen name="SplashScreen" component={SplashREAL} />
+
         <Stack.Group>
-            <Stack.Screen name="SplashScreen" component={Splash} />
+            <Stack.Screen name="Start" component={Splash} />
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="Phone" component={Phone} />
             <Stack.Screen name="Verify" component={Verify}/>
@@ -44,9 +48,9 @@ const StackNavigator = () => {
             <Stack.Screen name="Profile" component={Profile} />
         </Stack.Group>
 
-        <Stack.Group>
-            <Stack.Screen name='ProfVer' component={ProfVerify}/>
-        </Stack.Group>
+      
+          
+       
 
         <Stack.Group>
             <Stack.Screen name='AllDinners' component={AllDinners}/>
@@ -60,10 +64,12 @@ const StackNavigator = () => {
             <Stack.Screen name='Menu' component={Menu}/>
         </Stack.Group>
 
+        <Stack.Screen name='ProfVer' component={ProfVerify}/>
+        
         <Stack.Screen name="Welcome" component={Welcome} />
 
         <Stack.Screen name='Chat' component={Chat}/>
-        
+
       </Stack.Navigator>
   )
 }

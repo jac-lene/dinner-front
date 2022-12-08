@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
       marginVertical: 15,
     }, 
   buttonSignUp: {
-    backgroundColor: '#6750A4',
+    backgroundColor: '#9747FF',
   },
   buttonSocial: {
     backgroundColor: '#E8DEF8',

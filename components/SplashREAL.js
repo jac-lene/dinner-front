@@ -2,22 +2,22 @@ import { View, Image, SafeAreaView, TouchableWithoutFeedback, StyleSheet } from 
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-const Welcome = () => {
-  const navigation = useNavigation()
+const SplashREAL = () => {
+    const navigation = useNavigation()
 
   return (
-      <SafeAreaView style={styles.welcome}>
-       
+      <SafeAreaView style={styles.splash}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Start')}>
       <View style={styles.logo}>
-        <Image source={require('../assets/images/logo.png')}/>
+        <Image source={require('../assets/images/logoBig.png')}/>
       </View>
-        
+        </TouchableWithoutFeedback>
       </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-welcome: {
+splash: {
     flex: 1,
     backgroundColor: '#E8DEF8'
 },
@@ -28,4 +28,4 @@ logo: {
 }
 })
 
-export default Welcome
+export default SplashREAL
