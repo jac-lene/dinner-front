@@ -1,88 +1,86 @@
-import { View, Text, TextInput, SafeAreaView, StyleSheet, TouchableOpacity, Button, Input } from 'react-native'
+import { View, Text, TextInput, SafeAreaView, StyleSheet, TouchableOpacity, Button, Input, Keyboard } from 'react-native'
 import React from 'react'
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native'
 import { Formik } from 'formik';
 import AuthContext from '../context/AuthContext';
 
 const Login = () => {
-
-
-
+  const navigation = useNavigation()
   const { loginUser } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+     const keyboardDidShowListener = Keyboard.addListener(
+       'keyboardDidShow',
+       () => {
+         setKeyboardVisible(true); // or some other action
+       }
+     );
+     const keyboardDidHideListener = Keyboard.addListener(
+       'keyboardDidHide',
+       () => {
+         setKeyboardVisible(false); // or some other action
+       }
+     );
+ 
+     return () => {
+       keyboardDidHideListener.remove();
+       keyboardDidShowListener.remove();
+     };
+   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     username.length > 1 && loginUser(username, password);
+    navigation.navigate('Choose')
   };
 
   return (
+    <SafeAreaView style={styles.appContainer}>
+    <View style={styles.body}>
+    { isKeyboardVisible ? <View style={{marginTop: 100}}></View> : null } 
+
+    <Text style={styles.header}>Login to your account</Text>
+
     <Formik>
-        <View>
+        <View style={styles.nameForm}>
             <Text style={styles.formText}>Username</Text>
             <TextInput 
-                style={styles.input}
+                style={[styles.input, {paddingHorizontal: 20}]}
                 placeholder={"Username"}
                 label={"Username"}
                 onChangeText={newText => setUsername(newText)}
             />
             <Text style={styles.formText}>Password</Text>
             <TextInput 
-                style={styles.input}
+                style={[styles.input, {paddingHorizontal: 20}]}
                 placeholder={"*********"}
                 label={"Password"}
                 onChangeText={newText => setPassword(newText)}
             />
-            <Button title="Submit" onPress={handleSubmit} />  
+              <View style={styles.next}>
+            <TouchableOpacity style={styles.button} title="Submit" onPress={handleSubmit} >
+            <View >
+                <Text style={styles.buttonText}>Login</Text>
+            </View>
+            </TouchableOpacity>
+            </View>
+            
         </View>
     </Formik>
+    </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
- registerForm: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
- },
  appContainer: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     // alignItems: 'center',
-  },
-  progBarCont: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    // alignSelf: 'stretch',
-    marginTop: 40,
-    marginHorizontal: 45,
-    height: 10,
-    // marginBottom: 200,
-    // backgroundColor: 'yellow'
-  },
-  progBar1: {
-    flex: 1,
-    height: 3.5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    marginVertical: 25,
-    borderRadius: 50,
-    backgroundColor: '#6856C4',
-  },
-  progBar2: {
-    flex: 1,
-    height: 3.5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    marginVertical: 25,
-    paddingLeft: 10,
-    borderRadius: 50,
-    backgroundColor: '#C9B9FB',
   },
   body: {
     marginHorizontal: 40,
@@ -93,7 +91,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     textAlign: 'left',
-    marginRight: 200,
+    marginRight: 100,
     // backgroundColor: 'orange'
   },
   button: {
@@ -126,7 +124,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     paddingVertical: 10,
-    }
+    },
+    next: {
+      paddingVertical: 40,
+      paddingLeft: 180,
+    },
 });
 
 export default Login

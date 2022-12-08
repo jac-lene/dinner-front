@@ -37,6 +37,7 @@ const StackNavigator = ( props ) => {
         <Stack.Group>
             <Stack.Screen name="Start" component={Splash} />
             <Stack.Screen name="SignUp" component={SignUp} />
+            <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Phone" component={Phone} />
             <Stack.Screen name="Verify" component={Verify}/>
         </Stack.Group>
@@ -44,7 +45,6 @@ const StackNavigator = ( props ) => {
         <Stack.Group>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Choose" component={Choose}/>
-            <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Name" component={Name}/>
             <Stack.Screen name="Photos" component={Photos} />
             <Stack.Screen name="Birthday" component={Birthday} />
