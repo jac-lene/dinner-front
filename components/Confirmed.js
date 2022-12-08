@@ -29,7 +29,7 @@ const Confirmed = () => {
                 <Text style={styles.subHost}>Set reminder</Text>
             </View>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.selectbutton, styles.detailbutton]} onPress={() => navigation.navigate('OneDinner')}>
+            <TouchableOpacity style={[styles.selectbutton, styles.detailbutton]} onPress={() => navigation.navigate('DinnerDetails')}>
             <View style={styles.selectbuttonText}>
                 <Text style={styles.subHost}>Go to event details</Text>
             </View>
