@@ -54,9 +54,9 @@ const StackNavigator = ( props ) => {
             <Stack.Screen name="Gender" component={Gender} />
             <Stack.Screen name="Location" component={Location} />
             <Stack.Screen name="Profile" component={Profile} />
+            <Stack.Screen name="Welcome" component={Welcome} />
         </Stack.Group>
 
-        <Stack.Screen name="Welcome" component={Welcome} />
 
         <Stack.Group>
             <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
