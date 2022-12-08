@@ -17,11 +17,11 @@ const NavBar = () => {
         <Image source={require('../assets/images/Icon-home.png')}/>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ProfileView')}>
         <Image source={require('../assets/images/Icon-profile.png')}/>
         </TouchableOpacity>
             
-        <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Messages')}>
         <Image source={require('../assets/images/Icon-chat.png')}/>
         </TouchableOpacity>
             

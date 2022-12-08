@@ -3,8 +3,8 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import NavBar from './NavBar'
 
-const Chat = () => {
-  const navigation = useNavigation()
+const Messages = () => {
+    const navigation = useNavigation()
 
     return (
       <SafeAreaView 
@@ -13,21 +13,23 @@ const Chat = () => {
       <ScrollView>
         
         <View style={styles.mainHeader}>
-          <Text style={styles.mainHeaderText}>Christmas Dinner 12/25</Text>
+          <Text style={styles.mainHeaderText}>Messages</Text>
         </View>
   
       <View 
       style={styles.body}
       >
+          <View>
+        <Text style={styles.header}>Conversations</Text>
+        </View>
         
         <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
         <View style={styles.message}>
-        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/group.png')} />
-        
-        <View  style={styles.incoming} >
-        <Text style={styles.subtext}>Hey everyone! We’re preparing a roast and some mashed potatoes for the dinner. Anyone have side suggestions they’d like to bring?</Text>
+        <Image style={{borderRadius: 100, width: 80, height: 80}} source={require('../assets/images/group.png')} />
+        <View  style={{marginLeft: 10}} >
+        <Text style={styles.subHeader}>Christmas 12/25</Text>
+        <Text style={styles.subtext}>Tom: All good! Want to try brin...</Text>
         </View>
-        
         </View>
         </TouchableOpacity>
 
@@ -38,8 +40,9 @@ const Chat = () => {
 
         <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
           <View style={styles.message}>
-        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/group.png')} />
-        <View style={styles.incoming} >
+        <Image style={{borderRadius: 100, width: 80, height: 80}} source={require('../assets/images/group.png')} />
+        <View  style={{marginLeft: 10}} >
+        <Text style={styles.subHeader}>Thanksgiving 11/23</Text>
         <Text style={styles.subtext}>Tom: All good! Want to try brin...</Text>
         </View>
         </View>
@@ -51,8 +54,9 @@ const Chat = () => {
 
         <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
           <View style={styles.message}>
-        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/group.png')} />
-        <View style={styles.incoming} >
+        <Image style={{borderRadius: 100, width: 80, height: 80}} source={require('../assets/images/group.png')} />
+        <View style={{marginLeft: 10}} >
+        <Text style={styles.subHeader}>Friendsgiving 11/20</Text>
         <Text style={styles.subtext}>Tom: All good! Want to try brin...</Text>
         </View>
         </View>
@@ -80,56 +84,49 @@ const Chat = () => {
         alignItems: 'center',
       },
       mainHeaderText: {
-        fontSize: 26,
+        fontSize: 28,
         fontWeight: 'bold',
       },
-        body: {
+    message: {
+      flexDirection: 'row',
+    //   justifyContent: 'flex-start',
+      alignItems: 'center',
+    },
+    body: {
       marginHorizontal: 30,
-      marginTop: 30,
+      // marginTop: 50,
       // paddingBottom: 100,
       // backgroundColor: 'yellow'
   },
-    message: {
-      // flex: 1,
-      flexDirection: 'row',
-      alignItems:'flex-end',
+    header: {
+      fontSize: 30,
+      fontWeight: 'bold',
+      marginRight: 5,
+      paddingVertical: 20,
+      // backgroundColor: 'orange'
+    },
+    subHeader: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginBottom: 8,
     },
     subtext: {
-        fontSize: 18, 
+        fontSize: 18,
+        color: 'grey'
     },
-    nextButton: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 25,
-        height: 45,
-        marginVertical: 35,
-        width: 100,
-        backgroundColor: '#9747FF',
-      },
-    nextButtonText: {
-        fontSize: 20,
-        fontWeight: 'semibold',
-        color: '#fff',
-    },
-    incoming: {
-      borderTopLeftRadius: 25,
-      borderTopRightRadius: 25,
-      borderBottomRightRadius: 25,
-      marginHorizontal: 10,
-      marginVertical: 5,
-      padding: 20,
-      backgroundColor: '#D9D9D9',
-    },
-  buttonText: {
-      fontSize: 20,
-      color: '#fff',
+  divider: {
+    flexDirection: 'row',
   },
-  buttonTextSocial: {
-      fontSize: 20,
-      color: 'black',
+  lines: {
+    flex: 1,
+    height: .7,
+    alignSelf: 'stretch',
+    marginTop: 15,
+    marginBottom: 20,
+    backgroundColor: 'black',
   },
- 
+
   });
+  
 
-
-export default Chat
+export default Messages
