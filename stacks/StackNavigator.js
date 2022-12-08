@@ -29,6 +29,8 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
 
+        
+
         <Stack.Screen name="SplashScreen" component={SplashREAL} />
 
         <Stack.Group>
@@ -48,9 +50,7 @@ const StackNavigator = () => {
             <Stack.Screen name="Profile" component={Profile} />
         </Stack.Group>
 
-      
-          
-       
+        <Stack.Screen name="Welcome" component={Welcome} />
 
         <Stack.Group>
             <Stack.Screen name='AllDinners' component={AllDinners}/>
@@ -65,8 +65,6 @@ const StackNavigator = () => {
         </Stack.Group>
 
         <Stack.Screen name='ProfVer' component={ProfVerify}/>
-        
-        <Stack.Screen name="Welcome" component={Welcome} />
 
         <Stack.Screen name='Chat' component={Chat}/>
 
