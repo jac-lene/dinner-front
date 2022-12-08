@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableWithoutFeedback, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableWithoutFeedback, TouchableOpacity, FlatList } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import NavBar from './NavBar'
 import DinnerCard from './DinnerCard'
 import { useNavigation } from '@react-navigation/native'
@@ -7,11 +7,43 @@ import { useNavigation } from '@react-navigation/native'
 const AllDinners = ( props ) => {
   const navigation = useNavigation()
   const [filter, setFilter] = useState(false)
+  const [dinners, setDinners] = useState()
+
+  const getDinners = async () => {
+    try {
+      const response = await fetch('https://dinnerapp-backend.herokuapp.com/' + 'dinners');
+      const json = await response.json();
+      setDinners(json)
+    } catch (error) {
+      console.error(error);
+    } 
+  }
+
+  useEffect(() => {
+    getDinners();
+  }, []);
+
+  const renderDinner = ({ item }) => {
+    console.log(item)
+    return (
+      <>
+        <TouchableOpacity onPress={() => navigation.navigate('OneDinner')}>
+          <DinnerCard 
+            name={item.name}
+            city={item.city}
+            state={item.state}
+            dateTime={item.dateTime}
+            photo={item.photo}
+          />
+        </TouchableOpacity>
+      </>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.appContainer}>
+      
       <ScrollView>
-
       <View style={styles.body}>
 
       <View>
@@ -47,21 +79,14 @@ const AllDinners = ( props ) => {
       
 
       <View>
-    <TouchableOpacity onPress={() => navigation.navigate('OneDinner')}>
-      <DinnerCard />
-    </TouchableOpacity>
-      <DinnerCard />
-      <DinnerCard />
-      <DinnerCard />
-      <DinnerCard />
-      <DinnerCard />
-      <DinnerCard />
-      <DinnerCard />
-      <DinnerCard />
+      <FlatList
+          data={dinners}
+          renderItem={renderDinner}
+          keyExtractor={(item) => item.id}
+        />
       </View>
       </View>
-    
-    </ScrollView>
+      </ScrollView>
 
     <NavBar />
     

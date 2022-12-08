@@ -1,10 +1,50 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, ScrollView} from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity, Image, ScrollView} from 'react-native'
+import React, {useEffect, useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import NavBar from './NavBar'
 
 const Chat = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [chats, setChats] = useState([])
+  const [selectedId, setSelectedId] = useState(null);
   const navigation = useNavigation()
+  const getChats = async () => {
+    try {
+      const response = await fetch('https://dinnerapp-backend.herokuapp.com/' + 'allchats/' + '1');
+      const json = await response.json();
+      setChats(json)
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getChats();
+  }, []);
+
+
+  const renderMessage = ({ item }) => {
+    return (
+      <>
+      <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
+        <View style={styles.message}>
+        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/group.png')} />
+        
+        <View  style={styles.incoming} >
+        <Text style={styles.subtext}>Hey everyone! We’re preparing a roast and some mashed potatoes for the dinner. Anyone have side suggestions they’d like to bring?</Text>
+        </View>
+        
+        </View>
+        </TouchableOpacity>
+
+        <View style={styles.divider}>
+        <View style={styles.lines}></View>
+          </View>
+      </>
+    );
+  };
 
     return (
       <SafeAreaView 
@@ -19,7 +59,15 @@ const Chat = () => {
       <View 
       style={styles.body}
       >
-        
+        <View>
+
+          <FlatList
+          data={chats}
+          renderItem={renderMessage}
+          keyExtractor={(item) => item.id}
+          extraData={selectedId}
+        />
+        </View>
         <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
         <View style={styles.message}>
         <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/group.png')} />
@@ -130,6 +178,6 @@ const Chat = () => {
   },
  
   });
+   
 
-
-export default Chat
+export default Chat;

@@ -3,7 +3,7 @@ import React from 'react'
 import DropShadow from 'react-native-drop-shadow';
 
 
-const DinnerCard = () => {
+const DinnerCard = ({name, city, state, dateTime}) => {
   return (
 
     <SafeAreaView style={styles.appContainer}>
@@ -15,7 +15,7 @@ const DinnerCard = () => {
       <View style={styles.detailsBar}>
       <View style={styles.detailsTop}>
         <View>
-            <Text style={styles.detailsTitle}>Christmas Dinner</Text>
+            <Text style={styles.detailsTitle}>{name}</Text>
             <Text style={styles.detailsHost}>By Julia Gregg</Text>
         </View>
       </View>
@@ -26,8 +26,8 @@ const DinnerCard = () => {
     <View  style={styles.cardCont2}>
       
       <View style={styles.detailsBottom}>
-        <Text style={styles.detailsBold}>San Francisco, California</Text>
-        <Text style={styles.detailsReg}>Dec 25 - 5:00 PM</Text>
+        <Text style={styles.detailsBold}>{city}, {state}</Text>
+        <Text style={styles.detailsReg}>{dateTime}</Text>
         <Text style={styles.detailsReg}>RSVP by 12/18</Text>
       </View>
 
