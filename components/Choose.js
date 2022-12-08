@@ -21,7 +21,7 @@ const Choose = () => {
       <Text style={styles.subHeader}>Help us determine how you will navigate the app.</Text>
 
     <View>
-            <TouchableOpacity style={[styles.button, styles.buttonHost]} onPress={() => navigation.navigate('Register')}>
+            <TouchableOpacity style={[styles.button, styles.buttonHost]} onPress={() => navigation.navigate('Name')}>
             <View style={styles.buttonText}>
                 <Text style={[styles.textHost]}>Host</Text>
                 <Text style={styles.subHost}>I’m looking to host a dinner/event</Text>

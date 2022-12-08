@@ -115,7 +115,7 @@ const SignUp = () => {
 
 
         
-            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
+            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Register')}>
             <View>
                 <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Google</Text>
             </View>

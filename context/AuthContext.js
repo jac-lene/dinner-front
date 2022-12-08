@@ -63,8 +63,8 @@ export const AuthProvider = ({children}) => {
                 "password2": password2
             })
         });
-        if (response) {
-            navigation.navigate('SignUp');
+        if (response.status === 201) {
+            navigation.navigate('Choose');
             console.log("RESPONSE: ", JSON.stringify(response))
         } else {
             alert("Something went wrong!");
