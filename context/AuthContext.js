@@ -1,14 +1,16 @@
 import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { useNavigation } from '@react-navigation/native';
-import { AsyncStorage } from '@react-native-async-storage/async-storage';
+import { AsyncStorage, useAsyncStorage } from '@react-native-async-storage/async-storage';
 
 const AuthContext = createContext();
 export default AuthContext;
 
 export const AuthProvider = ({children}) => {
-    // const [isLoggedIn, setLoggedIn] = useState(false);
+    // const [loggedIn, setLoggedIn] = useState(false);
     const STORAGE_KEY = '@authTokens';
+
+    const setItem = useAsyncStorage('@authTokens')
 
     // const [authTokens, setAuthTokens] = useState(() => 
     //     AsyncStorage.getItem(STORAGE_KEY)
@@ -21,8 +23,9 @@ export const AuthProvider = ({children}) => {
     //     ? jwt_decode(AsyncStorage.getItem(STORAGE_KEY))
     //     : null
     // );
+
     const [authTokens, setAuthTokens] = useState(null);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({});
 
     const [loading, setLoading] = useState(false);
 
@@ -40,20 +43,21 @@ export const AuthProvider = ({children}) => {
             })
         });
         const data = await response.text();
-        if (response) {
-            console.log('RESPONSE: ', JSON.stringify(response))
+        if (response.status === 200) {
+            setAuthTokens(data);
+            setUser(jwt_decode(data.access));
+            AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            navigation.navigate('Profile');
+            console.log('Auth: ', user);
+            console.log(JSON.stringify(response))
         } else {
             alert("Something went wrong!")
+            console.log(JSON.stringify(response), username, password)
         }
-        // if (response.status === 200) {
-        //     setAuthTokens(data);
-        //     setUser(jwt_decode(data.access));
-        //     AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-        //     navigation.navigate('Profile');
-        //     console.log('Auth: ', user);
-        // } else {
-        //     alert("Something went wrong!")
-        // }
+    }
+
+    const userProfile = async () => {
+        const response = await fetch("https://dinnerapp-backend.herokuapp.com/users/")
     }
 
     const registerUser = async (username, password, password2) => {
@@ -69,7 +73,7 @@ export const AuthProvider = ({children}) => {
             })
         });
         if (response.status === 201) {
-            navigation.navigate('Choose');
+            navigation.navigate('Login');
             console.log("RESPONSE: ", JSON.stringify(response))
         } else {
             alert("Something went wrong!");

@@ -1,43 +1,113 @@
 import { View, Text, TextInput, SafeAreaView, StyleSheet, TouchableOpacity, Button, Input } from 'react-native'
 import React from 'react'
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native'
 import { Formik } from 'formik';
 import AuthContext from '../context/AuthContext';
 
 const Login = () => {
 
+  const navigation = useNavigation();
 
-
-  const { loginUser } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [fetchedUsers, setFetchedUsers] = useState([]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    username.length > 1 && loginUser(username, password);
-  };
 
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     username.length > 1 && loginUser(username, password);
+//   };
+
+
+
+    const getUsers = async (e) => {
+        const response = await fetch("https://dinnerapp-backend.herokuapp.com/users/");
+        const allUsers = await response.json()
+        setFetchedUsers(allUsers);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        for (let i =0; i < fetchedUsers.length; i++) {
+            if (fetchedUsers[i].username === username) {
+                await setUser(fetchedUsers[i]);
+                console.log('Set user');
+
+            } else {
+                console.log("Something went wrong!")
+            }
+            
+        }
+        console.log(user);
+        navigation.navigate('Profile');
+    }
+
+    useEffect(() => {
+        getUsers();
+        console.log(JSON.stringify(fetchedUsers));
+    }, []);
+
+
+    const loaded = () => {
+        return (
+            <Formik>
+                <View>
+                    <Text style={styles.formText}>Username</Text>
+                    <TextInput 
+                        style={styles.input}
+                        placeholder={"Username"}
+                        label={"Username"}
+                        onChangeText={newText => setUsername(newText)}
+                    />
+                    <Text style={styles.formText}>Password</Text>
+                    <TextInput 
+                        style={styles.input}
+                        placeholder={"*********"}
+                        label={"Password"}
+                        onChangeText={newText => setPassword(newText)}
+                    />
+                    <Button title="Submit" onPress={handleSubmit} />  
+                </View>
+            </Formik>
+        )
+    } 
+
+    const loading = () => {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        )
+    }
   return (
-    <Formik>
-        <View>
-            <Text style={styles.formText}>Username</Text>
-            <TextInput 
-                style={styles.input}
-                placeholder={"Username"}
-                label={"Username"}
-                onChangeText={newText => setUsername(newText)}
-            />
-            <Text style={styles.formText}>Password</Text>
-            <TextInput 
-                style={styles.input}
-                placeholder={"*********"}
-                label={"Password"}
-                onChangeText={newText => setPassword(newText)}
-            />
-            <Button title="Submit" onPress={handleSubmit} />  
-        </View>
-    </Formik>
+
+    <View>
+
+        {fetchedUsers && fetchedUsers.length ? loaded() : loading()}
+
+    </View>
+
+    // <Formik>
+    //     <View>
+    //         <Text style={styles.formText}>Username</Text>
+    //         <TextInput 
+    //             style={styles.input}
+    //             placeholder={"Username"}
+    //             label={"Username"}
+    //             onChangeText={newText => setUsername(newText)}
+    //         />
+    //         <Text style={styles.formText}>Password</Text>
+    //         <TextInput 
+    //             style={styles.input}
+    //             placeholder={"*********"}
+    //             label={"Password"}
+    //             onChangeText={newText => setPassword(newText)}
+    //         />
+    //         <Button title="Submit" onPress={handleSubmit} />  
+    //     </View>
+    // </Formik>
   )
 }
 
