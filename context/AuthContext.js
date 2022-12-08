@@ -77,6 +77,7 @@ export const AuthProvider = ({children}) => {
             console.log("RESPONSE: ", JSON.stringify(response))
         } else {
             alert("Something went wrong!");
+            console.log(response);
         }
     };
 

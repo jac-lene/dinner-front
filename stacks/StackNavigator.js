@@ -47,7 +47,6 @@ const StackNavigator = ( props ) => {
         <Stack.Group>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Choose" component={Choose}/>
-            <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="NewProfile" component={NewProfile} />
             <Stack.Screen name="Name" component={Name}/>
             <Stack.Screen name="Photos" component={Photos} />

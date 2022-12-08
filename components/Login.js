@@ -6,7 +6,6 @@ import { Formik } from 'formik';
 import AuthContext from '../context/AuthContext';
 
 const Login = () => {
-<<<<<<< HEAD
 
   const navigation = useNavigation();
 
@@ -14,12 +13,6 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [fetchedUsers, setFetchedUsers] = useState([]);
-
-=======
-  const navigation = useNavigation()
-  const { loginUser } = useContext(AuthContext);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
   useEffect(() => {
@@ -41,19 +34,6 @@ const Login = () => {
        keyboardDidShowListener.remove();
      };
    }, []);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    username.length > 1 && loginUser(username, password);
-    navigation.navigate('Choose')
-  };
->>>>>>> 0bd12fb24ecea77978ffa31c4559688f1247bd3e
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     username.length > 1 && loginUser(username, password);
-//   };
-
 
 
     const getUsers = async (e) => {
@@ -83,67 +63,8 @@ const Login = () => {
         console.log(JSON.stringify(fetchedUsers));
     }, []);
 
-
-    const loaded = () => {
-        return (
-            <Formik>
-                <View>
-                    <Text style={styles.formText}>Username</Text>
-                    <TextInput 
-                        style={styles.input}
-                        placeholder={"Username"}
-                        label={"Username"}
-                        onChangeText={newText => setUsername(newText)}
-                    />
-                    <Text style={styles.formText}>Password</Text>
-                    <TextInput 
-                        style={styles.input}
-                        placeholder={"*********"}
-                        label={"Password"}
-                        onChangeText={newText => setPassword(newText)}
-                    />
-                    <Button title="Submit" onPress={handleSubmit} />  
-                </View>
-            </Formik>
-        )
-    } 
-
-    const loading = () => {
-        return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
-        )
-    }
   return (
-<<<<<<< HEAD
 
-    <View>
-
-        {fetchedUsers && fetchedUsers.length ? loaded() : loading()}
-
-    </View>
-
-    // <Formik>
-    //     <View>
-    //         <Text style={styles.formText}>Username</Text>
-    //         <TextInput 
-    //             style={styles.input}
-    //             placeholder={"Username"}
-    //             label={"Username"}
-    //             onChangeText={newText => setUsername(newText)}
-    //         />
-    //         <Text style={styles.formText}>Password</Text>
-    //         <TextInput 
-    //             style={styles.input}
-    //             placeholder={"*********"}
-    //             label={"Password"}
-    //             onChangeText={newText => setPassword(newText)}
-    //         />
-    //         <Button title="Submit" onPress={handleSubmit} />  
-    //     </View>
-    // </Formik>
-=======
     <SafeAreaView style={styles.appContainer}>
     <View style={styles.body}>
     { isKeyboardVisible ? <View style={{marginTop: 100}}></View> : null } 
@@ -178,7 +99,6 @@ const Login = () => {
     </Formik>
     </View>
     </SafeAreaView>
->>>>>>> 0bd12fb24ecea77978ffa31c4559688f1247bd3e
   )
 }
 

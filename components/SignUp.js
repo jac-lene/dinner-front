@@ -91,25 +91,26 @@ const SignUp = () => {
     
     <View style={styles.auth}>
 
-            <TouchableOpacity style={[styles.button, styles.buttonSignUp]} onPress={() => navigation.navigate('Login')}>
+            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Login')}>
             <View>
-                <Text  style={[styles.buttonText, styles.buttonText]}>Login</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Login</Text>
             </View>
             </TouchableOpacity> 
 
-            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Register')}>
-            <View>
-                <Text style={styles.buttonTextSocial}>Sign up</Text>
-            </View>
-            </TouchableOpacity>
-  
             <View style={styles.divider}>
               <View style={styles.lines}></View>
               <Text style={styles.divText}>or</Text>
               <View style={styles.lines}></View>
             </View>
 
-            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
+            <TouchableOpacity style={[styles.button, styles.buttonSignUp]} onPress={() => navigation.navigate('Register')}>
+            <View>
+                <Text style={styles.buttonText}>Sign up</Text>
+            </View>
+            </TouchableOpacity>
+
+
+            {/* <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
                 <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Google</Text>
             </View>
@@ -123,7 +124,7 @@ const SignUp = () => {
             <View>
                 <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Apple</Text>
             </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
     </SafeAreaView>
   )
