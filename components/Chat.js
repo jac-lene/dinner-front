@@ -1,15 +1,18 @@
-import { View, Text, FlatList, ActivityIndicator } from 'react-native'
+import { View, Text, FlatList, ActivityIndicator, TouchableOpacity} from 'react-native'
 import React, {useEffect, useState} from 'react'
+const URL = process
+console.log(URL, "URL")
 
 const Chat = () => {
   const [isLoading, setLoading] = useState(true);
-  cons [data, setData] = useState([])
+  const [chats, setChats] = useState([])
+  const [selectedId, setSelectedId] = useState(null);
 
   const getChats = async () => {
     try {
-      const response = await fetch(process.env.BASE_URL + 'allchats');
+      const response = await fetch('https://dinnerapp-backend.herokuapp.com/' + 'allchats/' + '1');
       const json = await response.json();
-      setData(json)
+      setChats(json)
     } catch (error) {
       console.error(error);
     } finally {
@@ -21,19 +24,33 @@ const Chat = () => {
     getChats();
   }, []);
 
-  return (
-    <View>
-      {isLoading ? <ActivityIndicator/> : (
-        <FlatList
-          data={data}
-          keyExtractor={({id}, index) => id}
-          renderItem={({ item }) => (
-            <Text>Chat</Text>
-          )}
-        />
-      )}
-    </View>
+
+  const Item = ({ item, onPress}) => (
+    <TouchableOpacity onPress={onPress}>
+      <Text>{item.subject}</Text>
+    </TouchableOpacity>
   );
+
+  const renderItem = ({ item }) => {
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+      />
+    );
+  };
+   
+    return (
+      <View>
+
+        <FlatList
+          data={chats}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          extraData={selectedId}
+        />
+      </View>
+    );
 };
 
 export default Chat;
