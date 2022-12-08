@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 const NavBar = () => {
   const navigation = useNavigation()
+  
     
   return (
     <SafeAreaView style={styles.bottom}>
@@ -12,7 +13,7 @@ const NavBar = () => {
 
       <View style={styles.icons}>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Start')}>
+        <TouchableOpacity onPress={() => navigation.navigate('AllDinners')}>
         <Image source={require('../assets/images/Icon-home.png')}/>
         </TouchableOpacity>
 
