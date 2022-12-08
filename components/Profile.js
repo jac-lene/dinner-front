@@ -21,8 +21,8 @@ const Profile = () => {
   }
 
 
-  useEffect(() => {
-    getProfiles();
+  useEffect(async () => {
+    await getProfiles();
     for (let i = 0; i < fetchedProfiles.length; i++) {
       if (fetchedProfiles[i].user == user.id) {
         setProfile(fetchedProfiles[i]);
@@ -165,7 +165,7 @@ const Profile = () => {
         <View
         style={styles.next}
         >
-            <TouchableOpacity style={styles.nextButton} onPress={test}>
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Welcome')}>
             <View >
                 <Text style={styles.nextButtonText}>Finish</Text>
             </View>

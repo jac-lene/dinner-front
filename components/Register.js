@@ -37,7 +37,7 @@ const Register = () => {
     e.preventDefault();
     console.log(username, password, password2);
     registerUser(username, password, password2)
-    navigation.navigate('Login')
+    navigation.navigate('Choose')
   }
 
   return (
