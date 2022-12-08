@@ -33,7 +33,7 @@ const Stack = createNativeStackNavigator();
 const StackNavigator = ( props ) => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
-
+     <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
         <Stack.Screen name="SplashScreen" component={SplashREAL} />
 
         <Stack.Group>
@@ -59,7 +59,7 @@ const StackNavigator = ( props ) => {
 
 
         <Stack.Group>
-            <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
+       
             <Stack.Screen name='OneDinner' component={OneDinner}/>
             <Stack.Screen name='Interested' component={Interested}/>
         </Stack.Group>
