@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
@@ -22,7 +22,10 @@ const Location = () => {
       </View>
 
         <View style={styles.smallForm}>
-        <View style={styles.input}><Text style={styles.inputText}>Current Location</Text></View>
+        <View style={styles.input}>
+          <Image source={require('../assets/images/location.png')} />
+          <Text style={styles.inputText}>Current Location</Text>
+        </View>
         </View>
 
  
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 45,
       marginVertical: 10,
       width: 100,
-      backgroundColor: '#6750A4',
+      backgroundColor: '#9747FF',
     },
   buttonText: {
       fontSize: 20,
@@ -117,6 +120,7 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
     borderWidth: 1,
     borderRadius: 8,
+    paddingLeft: 10,
     justifyContent: 'center',
   },
   formText: {
@@ -129,9 +133,12 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     position: 'absolute',
-    paddingHorizontal: 20,
+    paddingLeft: 50,
     zIndex: 999,
   },
+  image: {
+    paddingHorizontal: 30,
+  }
 });
 
 

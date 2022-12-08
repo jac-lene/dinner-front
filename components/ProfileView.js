@@ -1,8 +1,9 @@
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, ScrollView} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import NavBar from './NavBar'
 
-const Profile = () => {
+const ProfileView = () => {
   const navigation = useNavigation()
 
   return (
@@ -115,7 +116,7 @@ const Profile = () => {
       </View>
     </View>
 
-    <View >
+    <View style={{marginBottom: 50}}>
           
             <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
@@ -134,18 +135,10 @@ const Profile = () => {
             </TouchableOpacity>
         </View>
 
-        <View
-        style={styles.next}
-        >
-            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Welcome')}>
-            <View >
-                <Text style={styles.nextButtonText}>Finish</Text>
-            </View>
-            </TouchableOpacity>
-        </View>
-
         </View>
       </ScrollView>
+
+      <NavBar />
     </SafeAreaView>
   )
 }
@@ -154,6 +147,7 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     justifyContent: 'space-between',
+    
     // alignItems: 'center',
   },
   mainHeader: {
@@ -310,4 +304,4 @@ basicText: {
 });
 
 
-export default Profile
+export default ProfileView
