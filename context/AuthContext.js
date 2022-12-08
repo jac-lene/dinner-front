@@ -58,15 +58,16 @@ export const AuthProvider = ({children}) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                username,
-                password,
-                password2
+                "username": username,
+                "password": password,
+                "password2": password2
             })
         });
-        if (response.status === 201) {
-            navigation().navigate('SignUp');
+        if (response) {
+            navigation.navigate('SignUp');
+            console.log("RESPONSE: ", JSON.stringify(response))
         } else {
-            alert("Something went wrong!")
+            alert("Something went wrong!");
         }
     };
 
@@ -74,7 +75,7 @@ export const AuthProvider = ({children}) => {
         setAuthTokens(null);
         setUser(null);
         AsyncStorage.clear();
-        navigation().navigate('Welcome');
+        navigation.navigate('Welcome');
     }
 
     const contextData = {
@@ -95,7 +96,7 @@ export const AuthProvider = ({children}) => {
         setLoading(false);
     }, [authTokens]);
 
-    if(loading) return <Text>Loading...</Text>
+    if(loading) return (<View><Text>Loading...</Text></View>)
 
     return (
         <AuthContext.Provider value={contextData}>

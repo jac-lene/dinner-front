@@ -1,4 +1,4 @@
-import { View, Text, TextInput, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, SafeAreaView, StyleSheet, TouchableOpacity, Button, Input } from 'react-native'
 import React from 'react'
 import { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native'
@@ -6,7 +6,6 @@ import { Formik } from 'formik';
 import AuthContext from '../context/AuthContext';
 
 const Register = () => {
-  const navigation = useNavigation()
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,77 +19,115 @@ const Register = () => {
   }
 
   return (
-    <SafeAreaView 
-    style={styles.appContainer}
-    >
-
-      <View style={styles.progBarCont}>
-        <View style={styles.progBar1}></View>
-        <View style={styles.progBar2}></View>
-      </View>
-
-    <View style={styles.body}>
-
-      <Text style={styles.header}>Set Up Your Login Info</Text>
-
-      {/* <View style={styles.registerForm}>
-
-        <Text style={styles.formText}>Username</Text>
-        <TextInput 
-            style={styles.input}
-            placeholder={"Username"}
-            value={'usename'}
-        />
-        <Text style={styles.formText}>Password</Text>
-        <TextInput 
-            style={styles.input}
-            placeholder={"*********"}
-            value={'password'}
-        />
-        <Text style={styles.formText}>Confirm Password</Text>
-        <TextInput 
-            style={styles.input}
-            placeholder={"********"}
-            value={'password2'}
-        />
-
-    </View> */}
-    <Formik style={styles.registerForm}>
-        <Text style={styles.formText}>Username</Text>
-        <TextInput 
-            style={styles.input}
-            placeholder={"Username"}
-            id={'username'}
-            onChange={e => setUsername(e.target.value)}
-        />
-        <Text style={styles.formText}>Password</Text>
-        <TextInput 
-            style={styles.input}
-            placeholder={"*********"}
-            id={'password'}
-            onChange={e => setPassword(e.target.value)}
-        />
-        <Text style={styles.formText}>Confirm Password</Text>
-        <TextInput 
-            style={styles.input}
-            placeholder={"********"}
-            id={'password2'} 
-            onChange={e => setPassword2(e.target.value)}
-        />
+    <Formik>
         <View>
-            <TouchableOpacity title="Submit" style={styles.button} onPress={handleSubmit}>
-            <View >
-                <Text style={styles.buttonText}>Sign Up</Text>
-            </View>
-            </TouchableOpacity>
-            
+            <Text style={styles.formText}>Username</Text>
+            <TextInput 
+                style={styles.input}
+                placeholder={"Username"}
+                label={"Username"}
+                onChangeText={newText => setUsername(newText)}
+            />
+            <Text style={styles.formText}>Password</Text>
+            <TextInput 
+                style={styles.input}
+                placeholder={"*********"}
+                label={"Password"}
+                onChangeText={newText => setPassword(newText)}
+            />
+            <Text style={styles.formText}>Confirm Password</Text>
+            <TextInput 
+                style={styles.input}
+                placeholder={"********"}
+                label={"Password2"}
+                onChangeText={newText => setPassword2(newText)}
+            />
+            <Button title="Submit" onPress={handleSubmit} />  
         </View>
-
     </Formik>
+    // <SafeAreaView 
+    // style={styles.appContainer}
+    // >
 
-    </View>
+    //   <View style={styles.progBarCont}>
+    //     <View style={styles.progBar1}></View>
+    //     <View style={styles.progBar2}></View>
+    //   </View>
 
-    </SafeAreaView>
+    // <View style={styles.body}>
+
+    //   <Text style={styles.header}>Set Up Your Login Info</Text>
+
+    //   <View style={styles.registerForm}>
+
+    //     <Text style={styles.formText}>Username</Text>
+    //     <TextInput 
+    //         style={styles.input}
+    //         placeholder={"Username"}
+    //         for={'username'}
+    //         onChange={e => setUsername(e.target.value)}
+    //     />
+    //     <Text style={styles.formText}>Password</Text>
+    //     <TextInput 
+    //         style={styles.input}
+    //         placeholder={"*********"}
+    //         for={'password'}
+    //         onChange={e => setPassword(e.target.value)}
+    //     />
+    //     <Text style={styles.formText}>Confirm Password</Text>
+    //     <TextInput 
+    //         style={styles.input}
+    //         placeholder={"********"}
+    //         for={'password2'}
+    //         onChange={e => setPassword2(e.target.value)}
+    //     />
+
+        // <View>
+        //     <TouchableOpacity title="Submit" style={styles.button} onPress={handleSubmit}>
+        //     <View >
+        //         <Text style={styles.buttonText}>Sign Up</Text>
+        //     </View>
+        //     </TouchableOpacity>
+        // </View>
+
+    // </View>
+    // {/* <Formik style={styles.registerForm}>
+        // <Text style={styles.formText}>Username</Text>
+        // <TextInput 
+        //     style={styles.input}
+        //     placeholder={"Username"}
+        //     id={'username'}
+        //     onChange={e => setUsername(e.target.value)}
+        // />
+        // <Text style={styles.formText}>Password</Text>
+        // <TextInput 
+        //     style={styles.input}
+        //     placeholder={"*********"}
+        //     id={'password'}
+        //     onChange={e => setPassword(e.target.value)}
+        // />
+        // <Text style={styles.formText}>Confirm Password</Text>
+        // <TextInput 
+        //     style={styles.input}
+        //     placeholder={"********"}
+        //     id={'password2'} 
+        //     onChange={e => setPassword2(e.target.value)}
+        // />
+        // <View>
+        //     <TouchableOpacity title="Submit" style={styles.button} onPress={handleSubmit}>
+        //     <View >
+        //         <Text style={styles.buttonText}>Sign Up</Text>
+        //     </View>
+        //     </TouchableOpacity>
+            
+        // </View>
+
+    // </Formik> */}
+
+    // </View>
+
+
+    // </SafeAreaView>
   )
 }
 
