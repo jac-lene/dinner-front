@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import { StatusBar } from 'expo-status-bar';
-import { ActivityIndicator, StyleSheet, Text, View, Button, Alert } from 'react-native';
-=======
-import { ActivityIndicator, StyleSheet, Text, View, Button, StatusBar } from 'react-native';
->>>>>>> 92ecf01a391daf875cba661f5d8d069ac84c36fc
+import { ActivityIndicator, StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import axios from 'axios'
 import StackNavigator from './stacks/StackNavigator'
@@ -24,18 +20,12 @@ export default function App() {
  }
 
 return (
-<<<<<<< HEAD
-      <NavigationContainer>
-        <AuthProvider>
-          <StackNavigator/>
-        </AuthProvider>
-      </NavigationContainer>
-=======
     <NavigationContainer>
-      <StatusBar style="light"/>
-      <StackNavigator/>
+      <AuthProvider>
+        <StatusBar style="light"/>
+        <StackNavigator/>
+      </AuthProvider>
     </NavigationContainer>
->>>>>>> 92ecf01a391daf875cba661f5d8d069ac84c36fc
   );
 }
 

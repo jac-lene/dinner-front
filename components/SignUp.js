@@ -86,19 +86,13 @@ const SignUp = () => {
 
     </View>
 
-    <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Login')}>
-            <View>
-                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Login</Text>
-            </View>
-    </TouchableOpacity> 
     
-
   
     
     <View style={styles.auth}>
-            <TouchableOpacity style={[styles.button, styles.buttonSignUp]} onPress={() => navigation.navigate('Choose')}>
+            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Login')}>
             <View>
-                <Text  style={styles.buttonText}>Sign up</Text>
+                <Text  style={styles.buttonTextSocial}>Login</Text>
             </View>
             </TouchableOpacity>
 
@@ -107,22 +101,13 @@ const SignUp = () => {
               <Text style={styles.divText}>or</Text>
               <View style={styles.lines}></View>
             </View>
-
-            {/* <View style={styles.container}>
-              <GoogleSigninButton
-                style={styles.signInButton}
-                size={GoogleSigninButton.Size.Wide}
-                color={GoogleSigninButton.Color.Dark}
-                onPress = {() => signIn()}
-
-              />
-            </View> */}
+     
 
 
-        
-            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Register')}>
+     
+            <TouchableOpacity style={[styles.button, styles.buttonSignUp]} onPress={() => navigation.navigate('Register')}>
             <View>
-                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Google</Text>
+                <Text  style={[styles.buttonText, styles.buttonText]}>Sign Up</Text>
             </View>
             </TouchableOpacity> 
 

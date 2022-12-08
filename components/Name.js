@@ -1,9 +1,12 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { useState } from 'react';
 
 const Name = () => {
   const navigation = useNavigation()
+
+  const [firstName, setFirstName] = useState("")
 
   return (
     <SafeAreaView 
@@ -22,7 +25,13 @@ const Name = () => {
       <View style={styles.nameForm}>
 
         <Text style={styles.formText}>First Name</Text>
-        <View style={styles.input}></View>
+          <TextInput 
+              style={styles.input}
+              placeholder={"First Name"}
+              label={"First Name"}
+              onChangeText={newText => setFirstName(newText)}
+          />
+
         <Text style={styles.formText}>Last Name</Text>
         <View style={styles.input}></View>
 
