@@ -1,61 +1,53 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, TextInput, SafeAreaView, StyleSheet, TouchableOpacity, Button, Input } from 'react-native'
 import React from 'react'
+import { useContext, useState } from 'react';
 import { useNavigation } from '@react-navigation/native'
-import { useState } from 'react';
+import { Formik } from 'formik';
+import AuthContext from '../context/AuthContext';
 
-const Name = () => {
-  const navigation = useNavigation()
+const Login = () => {
 
-  const [firstName, setFirstName] = useState("")
+
+
+  const { loginUser } = useContext(AuthContext);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    username.length > 1 && loginUser(username, password);
+  };
 
   return (
-    <SafeAreaView 
-    style={styles.appContainer}
-    >
-
-      <View style={styles.progBarCont}>
-        <View style={styles.progBar1}></View>
-        <View style={styles.progBar2}></View>
-      </View>
-
-    <View style={styles.body}>
-
-      <Text style={styles.header}>What is your name?</Text>
-
-      <View style={styles.nameForm}>
-
-        <Text style={styles.formText}>First Name</Text>
-          <TextInput 
-              style={styles.input}
-              placeholder={"First Name"}
-              label={"First Name"}
-              onChangeText={newText => setFirstName(newText)}
-          />
-
-        <Text style={styles.formText}>Last Name</Text>
-        <View style={styles.input}></View>
-
-    </View>
-
-    </View>
-
-    
-
-    <View style={styles.next}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photos')}>
-            <View >
-                <Text style={styles.buttonText}>Next</Text>
-            </View>
-            </TouchableOpacity>
-            
-      </View>
-
-    </SafeAreaView>
+    <Formik>
+        <View>
+            <Text style={styles.formText}>Username</Text>
+            <TextInput 
+                style={styles.input}
+                placeholder={"Username"}
+                label={"Username"}
+                onChangeText={newText => setUsername(newText)}
+            />
+            <Text style={styles.formText}>Password</Text>
+            <TextInput 
+                style={styles.input}
+                placeholder={"*********"}
+                label={"Password"}
+                onChangeText={newText => setPassword(newText)}
+            />
+            <Button title="Submit" onPress={handleSubmit} />  
+        </View>
+    </Formik>
   )
 }
 
 const styles = StyleSheet.create({
-  appContainer: {
+ registerForm: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+ },
+ appContainer: {
     flex: 1,
     justifyContent: 'space-between',
     // alignItems: 'center',
@@ -104,10 +96,6 @@ const styles = StyleSheet.create({
     marginRight: 200,
     // backgroundColor: 'orange'
   },
-  next: {
-    paddingBottom: 150,
-    paddingLeft: 280,
-  },
   button: {
       justifyContent: 'center',
       alignItems: 'center',
@@ -115,8 +103,8 @@ const styles = StyleSheet.create({
       height: 45,
       marginHorizontal: 45,
       marginVertical: 10,
-      width: 100,
-      backgroundColor: '#9747FF',
+      width: 150,
+      backgroundColor: '#6750A4',
     },
   buttonText: {
       fontSize: 20,
@@ -138,7 +126,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     paddingVertical: 10,
-  }
+    }
 });
 
-export default Name
+export default Login

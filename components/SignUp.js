@@ -1,10 +1,77 @@
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image} from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
+// import { GoogleSigninButton, GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+// import { WEB_CLIENT_ID } from '../utils/keys';
+
+
 
 
 const SignUp = () => {
   const navigation = useNavigation()
+
+  // const [loggedIn, setLoggedIn] = useState(false);
+  // const [userInfo, setUserInfo] = useState([]);
+
+
+  
+  // function configureGoogleSignin() {
+  //   GoogleSignin.configure({
+  //     scopes: ['email'],
+  //     webClientId: WEB_CLIENT_ID,
+  //     offlineAccess: true
+  //   });
+  //  }
+
+  // useEffect(() => {
+  //   configureGoogleSignin();
+  //  }, []);
+  
+  // async function signIn() {
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     const userInfo = await GoogleSignin.signIn();
+  //     setUserInfo(userInfo);
+  //     setLoggedIn(true);
+  //   } catch (error) {
+  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+  //       Alert.alert('Process Cancelled');
+  //     } else if (error.code === statusCodes.IN_PROGRESS){
+  //       Alert.alert('Signin in progress');
+  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+  //       Alert.alert('Play services are not available')
+  //     } else {
+  //       Alert.alert('Something went wrong...', error.toString());
+  //     }
+  //   }
+  //  }
+  
+  // async function signOut() {
+  //   try {
+  //     await GoogleSignin.revokeAccess();
+  //     await GoogleSignin.signOut();
+  //     setIsLoggedIn(false);
+  //     setUserInfo([]);
+  //   } catch (error) {
+  //     Alert.alert('Something went wrong...', error.toString());
+  //   }
+  //  }
+  
+  // async function getCurrentUserInfo() {
+  //   try {
+  //     const userInfo = await GoogleSignin.signInSilently();
+  //     setUserInfo(userInfo);
+  //   } catch (error) {
+  //     if (error.code === statusCodes.SIGN_IN_REQUIRED) {
+  //       Alert.alert('Please sign in');
+  //       setIsLoggedIn(false);
+  //     } else {
+  //       Alert.alert('Something went wrong...', error.toString());
+  //       setIsLoggedIn(false);
+  //     }
+  //   }
+  //  }
 
   return (
     <SafeAreaView style={styles.appContainer}>
@@ -18,14 +85,14 @@ const SignUp = () => {
       <Text style={styles.header}>Hello there!</Text>
 
     </View>
-    
 
+    
   
     
     <View style={styles.auth}>
-            <TouchableOpacity style={[styles.button, styles.buttonSignUp]} onPress={() => navigation.navigate('Choose')}>
+            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Login')}>
             <View>
-                <Text  style={styles.buttonText}>Sign up</Text>
+                <Text  style={styles.buttonTextSocial}>Login</Text>
             </View>
             </TouchableOpacity>
 
@@ -34,11 +101,17 @@ const SignUp = () => {
               <Text style={styles.divText}>or</Text>
               <View style={styles.lines}></View>
             </View>
-        
-            <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
+     
+
+
+     
+            <TouchableOpacity style={[styles.button, styles.buttonSignUp]} onPress={() => navigation.navigate('Register')}>
             <View>
-                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Google</Text>
+                <Text  style={[styles.buttonText, styles.buttonText]}>Sign Up</Text>
             </View>
+            </TouchableOpacity> 
+
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Phone')}>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
@@ -145,7 +218,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginVertical: 25,
     backgroundColor: 'black',
-  }
+  },
+  // container: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center'
+  // },
+  // signInButton: {
+  //   width: 200,
+  //   height: 50
+  // }
 });
 
 export default SignUp
