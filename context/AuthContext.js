@@ -35,20 +35,25 @@ export const AuthProvider = ({children}) => {
                 "Content-Type": "application-json"
             },
             body: JSON.stringify({
-                username,
-                password
+                "username": username,
+                "password": password
             })
         });
-        const data = await response.json();
-        if (response.status === 200) {
-            setAuthTokens(data);
-            setUser(jwt_decode(data.access));
-            AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-            navigation().navigate('Profile');
-            console.log('Auth: ', user);
+        const data = await response.text();
+        if (response) {
+            console.log('RESPONSE: ', JSON.stringify(response))
         } else {
             alert("Something went wrong!")
         }
+        // if (response.status === 200) {
+        //     setAuthTokens(data);
+        //     setUser(jwt_decode(data.access));
+        //     AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        //     navigation.navigate('Profile');
+        //     console.log('Auth: ', user);
+        // } else {
+        //     alert("Something went wrong!")
+        // }
     }
 
     const registerUser = async (username, password, password2) => {

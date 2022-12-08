@@ -1,22 +1,22 @@
 import { View, Text, TextInput, SafeAreaView, StyleSheet, TouchableOpacity, Button, Input } from 'react-native'
 import React from 'react'
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigation } from '@react-navigation/native'
 import { Formik } from 'formik';
 import AuthContext from '../context/AuthContext';
 
-const Register = () => {
+const Login = () => {
 
+
+
+  const { loginUser } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
-  const { registerUser } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username, password, password2);
-    registerUser(username, password, password2)
-  }
+    username.length > 1 && loginUser(username, password);
+  };
 
   return (
     <Formik>
@@ -34,13 +34,6 @@ const Register = () => {
                 placeholder={"*********"}
                 label={"Password"}
                 onChangeText={newText => setPassword(newText)}
-            />
-            <Text style={styles.formText}>Confirm Password</Text>
-            <TextInput 
-                style={styles.input}
-                placeholder={"********"}
-                label={"Password2"}
-                onChangeText={newText => setPassword2(newText)}
             />
             <Button title="Submit" onPress={handleSubmit} />  
         </View>
@@ -136,4 +129,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Register
+export default Login

@@ -86,6 +86,12 @@ const SignUp = () => {
       <Text style={styles.header}>Hello there!</Text>
 
     </View>
+
+    <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Login')}>
+            <View>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Login</Text>
+            </View>
+    </TouchableOpacity> 
     
 
   

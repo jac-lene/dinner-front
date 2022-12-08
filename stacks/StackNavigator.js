@@ -22,6 +22,7 @@ import Chat from '../components/Chat';
 import Splash from '../components/Splash';
 import Name from '../components/Name';
 import Register from '../components/Register';
+import Login from '../components/Login';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,7 @@ const StackNavigator = () => {
         </Stack.Group>
         
         <Stack.Group>
+            <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Choose" component={Choose}/>
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Name" component={Name}/>
