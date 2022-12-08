@@ -9,7 +9,7 @@ const Choose = () => {
     <SafeAreaView 
     // style={styles.appContainer}
     >
-      
+
       <View style={styles.progBarCont}>
         <View style={styles.progBar1}></View>
         <View style={styles.progBar2}></View>
@@ -21,7 +21,7 @@ const Choose = () => {
       <Text style={styles.subHeader}>Help us determine how you will navigate the app.</Text>
 
     <View>
-            <TouchableOpacity style={[styles.button, styles.buttonHost]} onPress={() => navigation.navigate('Name')}>
+            <TouchableOpacity style={[styles.button, styles.buttonHost]} onPress={() => navigation.navigate('Register')}>
             <View style={styles.buttonText}>
                 <Text style={[styles.textHost]}>Host</Text>
                 <Text style={styles.subHost}>I’m looking to host a dinner/event</Text>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
   },
   progBarCont: {
     flexDirection: 'row',
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     marginVertical: 25,
     paddingLeft: 170,
-    borderRadius: 50,
+    borderRadiusRight: 50,
     backgroundColor: '#C9B9FB',
   },
   body: {
@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     textAlign: 'left',
     marginVertical: 10,
+    marginRight: 80,
   },
   buttonText: {
       flex: 1,

@@ -45,11 +45,11 @@ export default function App() {
  }
 
 return (
-    <AuthProvider>
       <NavigationContainer>
-        <StackNavigator/>
+        <AuthProvider>
+          <StackNavigator/>
+        </AuthProvider>
       </NavigationContainer>
-    </AuthProvider>
   );
 }
 
