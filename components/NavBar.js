@@ -6,13 +6,13 @@ const NavBar = () => {
   const navigation = useNavigation()
     
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.bottom}>
 
     <View style={styles.color}>
 
       <View style={styles.icons}>
 
-        <TouchableOpacity onPress={() => navigation.navigate('AllDinners')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Start')}>
         <Image source={require('../assets/images/Icon-home.png')}/>
         </TouchableOpacity>
 
@@ -37,15 +37,14 @@ const NavBar = () => {
 }
 
 const styles = StyleSheet.create({
-color: {
-    height: 150,
-    backgroundColor: '#E8DEF8'      
-},
-icons: {
+  color: {
+    backgroundColor: '#E8DEF8',    
+  },
+  icons: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
-}
+    marginVertical: 20,
+  },
 });
 
 export default NavBar
