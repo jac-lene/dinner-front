@@ -27,13 +27,13 @@ import NavBar from '../components/NavBar';
 import NewProfile from '../components/NewProfile';
 import ProfileView from '../components/ProfileView';
 import Messages from '../components/Messages';
+import Calendar from '../components/Calendar';
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = ( props ) => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
-
         <Stack.Screen name="SplashScreen" component={SplashREAL} />
 
         <Stack.Group>
@@ -59,7 +59,8 @@ const StackNavigator = ( props ) => {
 
 
         <Stack.Group>
-            <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
+     <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
+       
             <Stack.Screen name='OneDinner' component={OneDinner}/>
             <Stack.Screen name='Interested' component={Interested}/>
         </Stack.Group>
@@ -72,6 +73,7 @@ const StackNavigator = ( props ) => {
         </Stack.Group>
 
         <Stack.Screen name='ProfileView' component={ProfileView}/>
+        <Stack.Screen name='Calendar' component={Calendar}/>
 
        
 

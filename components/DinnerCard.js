@@ -1,9 +1,22 @@
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, SafeAreaView } from 'react-native'
 import React from 'react'
 import DropShadow from 'react-native-drop-shadow';
 
 
 const DinnerCard = ({name, city, state, dateTime}) => {
+
+  console.log(dateTime)
+  const options = {
+    weekday: 'long',
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  const dateNice = new Date(dateTime).toLocaleDateString('en-US', options);
+
+console.log(dateNice)
+
   return (
 
     <SafeAreaView style={styles.appContainer}>
@@ -27,7 +40,7 @@ const DinnerCard = ({name, city, state, dateTime}) => {
       
       <View style={styles.detailsBottom}>
         <Text style={styles.detailsBold}>{city}, {state}</Text>
-        <Text style={styles.detailsReg}>{dateTime}</Text>
+        <Text style={styles.detailsReg}>{dateNice}</Text>
         <Text style={styles.detailsReg}>RSVP by 12/18</Text>
       </View>
 

@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity, Image, ScrollView} from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity, Image, ScrollView, TextInput} from 'react-native'
 import React, {useEffect, useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import NavBar from './NavBar'
@@ -27,22 +27,22 @@ const Chat = () => {
 
   const renderMessage = ({ item }) => {
     return (
-      <>
+  
       <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
-        <View style={styles.message}>
-        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/group.png')} />
+        <View style={[styles.message, {marginHorizontal: 10, marginRight: 80}]}>
+        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/p2.png')} />
         
         <View  style={styles.incoming} >
-        <Text style={styles.subtext}>Hey everyone! We’re preparing a roast and some mashed potatoes for the dinner. Anyone have side suggestions they’d like to bring?</Text>
+
+        <View  style={{paddingRight:30, marginLeft:20,}}>
+        <Text style={styles.subtext} >Hey everyone! We’re preparing a roast and some mashed potatoes for the dinner. Anyone have side suggestions they’d like to bring?</Text>
         </View>
-        
+
+        </View>
+
         </View>
         </TouchableOpacity>
 
-        <View style={styles.divider}>
-        <View style={styles.lines}></View>
-          </View>
-      </>
     );
   };
 
@@ -50,16 +50,50 @@ const Chat = () => {
       <SafeAreaView 
       style={styles.appContainer}
       >
-      <ScrollView>
         
         <View style={styles.mainHeader}>
           <Text style={styles.mainHeaderText}>Christmas Dinner 12/25</Text>
         </View>
-  
+      
+      <View style={styles.apart}>
       <View 
       style={styles.body}
       >
-        <View>
+
+        <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
+        <View style={[styles.message, {marginHorizontal: 10, marginRight: 80}]}>
+        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/p1.png')} />
+        
+        <View  style={styles.incoming} >
+        <View  style={{paddingHorizontal: 20}}>
+        <Text style={styles.subtext}>That sounds great! I was thinking about a green bean casserole. How does that sound? </Text>
+        </View>
+        </View>
+        </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
+          <View style={[styles.message, {marginHorizontal: 10, marginRight: 80}]} >
+        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/p3.png')} />
+        <View style={styles.incoming} >
+          <View style={{paddingHorizontal: 30}}>
+        <Text style={styles.subtext}>Absolutely! I can make my Vegan version of a roast. Would that work?</Text>
+        </View>
+        </View>
+        </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
+          <View style={[styles.messageSend, {marginRight: 80}]}>
+        <View style={styles.sending} >
+          <View style={{paddingHorizontal: 30}}>
+        <Text style={styles.subtextSend}>I would also love Vegan options! I can bring a dish as well to share :) </Text>
+        </View>
+        </View>
+        </View>
+        </TouchableOpacity>
+          </View>
+
 
           <FlatList
           data={chats}
@@ -67,50 +101,23 @@ const Chat = () => {
           keyExtractor={(item) => item.id}
           extraData={selectedId}
         />
-        </View>
-        <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
-        <View style={styles.message}>
-        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/group.png')} />
-        
-        <View  style={styles.incoming} >
-        <Text style={styles.subtext}>Hey everyone! We’re preparing a roast and some mashed potatoes for the dinner. Anyone have side suggestions they’d like to bring?</Text>
-        </View>
-        
-        </View>
-        </TouchableOpacity>
 
-        <View style={styles.divider}>
-        <View style={styles.lines}></View>
           </View>
-       
+          <View  style={styles.cardCont2}>
+    <View style={styles.interestCont}>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
-          <View style={styles.message}>
-        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/group.png')} />
-        <View style={styles.incoming} >
-        <Text style={styles.subtext}>Tom: All good! Want to try brin...</Text>
-        </View>
-        </View>
+    <View style={styles.detailsBottom}>
+      <TextInput style={styles.detailsBold}>Enter your message here</TextInput>
+    </View>
+    
+      <TouchableOpacity onPress={() => navigation.navigate('DinnerDetails')}>
+    <View style={styles.interest}>
+      <Text style={styles.interestText}>Send</Text>
+    </View>
+      </TouchableOpacity>
 
-        <View style={styles.divider}>
-        <View style={styles.lines}></View>
-          </View>
-          </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
-          <View style={styles.message}>
-        <Image style={{borderRadius: 100, width: 40, height: 40}} source={require('../assets/images/group.png')} />
-        <View style={styles.incoming} >
-        <Text style={styles.subtext}>Tom: All good! Want to try brin...</Text>
-        </View>
-        </View>
-        </TouchableOpacity>
-
-
-  
-          </View>
-        </ScrollView>
-  
+    </View> 
+    </View>
         <NavBar />
       </SafeAreaView>
     )
@@ -121,29 +128,77 @@ const Chat = () => {
       flex: 1,
       justifyContent: 'space-between',
     },
+    cardCont2: {
+      backgroundColor: '#FAFAFA',
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      height: 79,
+      borderTopRightRadius: 25,
+      borderTopLeftRadius: 25,
+    },
+    detailsBottom: {
+      marginHorizontal: 30,
+      marginVertical: 20,
+      // backgroundColor: 'yellow'
+  },
+  detailsBold: {
+    fontSize: 20,
+},
+    interestCont: {
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    interest: {
+      flexDirection: 'row',
+      height: 45,
+      backgroundColor: '#fff',
+      borderRadius: 25,
+      // justifyContent: 'space-between',
+      alignItems: 'center',
+      marginHorizontal: 30,
+      paddingHorizontal: 20,
+    },
+    interestText: {
+      fontWeight: 'bold',
+      fontSize: 18,
+    },
     mainHeader: {
-        height: 90,
+        height: 100,
         backgroundColor: '#EEE8F4',
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 20,
       },
       mainHeaderText: {
         fontSize: 26,
         fontWeight: 'bold',
       },
-        body: {
-      marginHorizontal: 30,
-      marginTop: 30,
-      // paddingBottom: 100,
-      // backgroundColor: 'yellow'
+      apart: {
+        flex: 1,
+        marginVertical: 10,
+        // justifyContent: 'space-between'
   },
     message: {
       // flex: 1,
       flexDirection: 'row',
       alignItems:'flex-end',
     },
+    messageSend: {
+      // flex: 1,
+      flexDirection: 'row-reverse',
+      alignItems:'flex-end',
+    },
     subtext: {
         fontSize: 18, 
+        textAlign: 'left',
+    },
+    subtextSend: {
+        fontSize: 18, 
+        textAlign: 'justify',
+        color: '#fff'
     },
     nextButton: {
         justifyContent: 'center',
@@ -165,8 +220,17 @@ const Chat = () => {
       borderBottomRightRadius: 25,
       marginHorizontal: 10,
       marginVertical: 5,
-      padding: 20,
+      paddingVertical: 20,
       backgroundColor: '#D9D9D9',
+    },
+    sending: {
+      borderTopLeftRadius: 25,
+      borderTopRightRadius: 25,
+      borderBottomLeftRadius: 25,
+      marginHorizontal: 10,
+      marginVertical: 5,
+      paddingVertical: 20,
+      backgroundColor: '#6750A4',
     },
   buttonText: {
       fontSize: 20,

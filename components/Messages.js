@@ -27,7 +27,7 @@ const Messages = () => {
         <View style={styles.message}>
         <Image style={{borderRadius: 100, width: 80, height: 80}} source={require('../assets/images/group.png')} />
         <View  style={{marginLeft: 10}} >
-        <Text style={styles.subHeader}>Christmas 12/25</Text>
+        <Text style={styles.subHeader}>Christmas Dinner 12/25</Text>
         <Text style={styles.subtext}>Tom: All good! Want to try brin...</Text>
         </View>
         </View>
@@ -78,7 +78,7 @@ const Messages = () => {
       justifyContent: 'space-between',
     },
     mainHeader: {
-        height: 90,
+        height: 110,
         backgroundColor: '#EEE8F4',
         justifyContent: 'center',
         alignItems: 'center',

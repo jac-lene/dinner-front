@@ -50,13 +50,13 @@ const DinnerDetails = () => {
   </View>
 
   <View style={styles.detailsTop}>
-    <View>
+    <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
       <View style={styles.chat}>
       <Image source={require('../assets/images/chatbubble.png')} />
         <Text style={[styles.detailsHost, {marginLeft: 5}]}>Event Chat</Text>
       </View>
         <Text style={styles.smallText}>Ask questions, coordinate details, and connect with other attendees for this event through event chat.</Text>
-    </View>  
+    </TouchableOpacity>  
   </View>
 
   <View style={styles.divider}>

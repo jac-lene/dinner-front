@@ -44,6 +44,7 @@ const AllDinners = ( props ) => {
     <SafeAreaView style={styles.appContainer}>
       
       <ScrollView>
+
       <View style={styles.body}>
 
       <View>
@@ -78,17 +79,23 @@ const AllDinners = ( props ) => {
       
       
 
-      <View>
       <FlatList
+          style={{marginBottom: 0}}
           data={dinners}
           renderItem={renderDinner}
           keyExtractor={(item) => item.id}
         />
+
+      <DinnerCard />
+      <DinnerCard />
+      <DinnerCard />
+      <DinnerCard />
+      
       </View>
-      </View>
+      
       </ScrollView>
 
-    <NavBar />
+      <NavBar />
     
     </SafeAreaView>
   )
