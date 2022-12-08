@@ -14,10 +14,19 @@ const OneDinner = () => {
       <ScrollView>
 
       
-    <View>
+    <View style={styles.bottom}>
       <View style={styles.image} >
-<Image style={styles.round} source={require('../assets/images/dinner1.png')} resizeMode='cover'/>
+<Image style={styles.round} source={require('../assets/images/dinner2.png')} resizeMode='cover'/>
       </View>
+
+          <View style={styles.dotContainer}>
+            <TouchableOpacity style={[styles.dotStyle, {opacity: 1}]}>
+            </TouchableOpacity>
+            <TouchableOpacity  style={styles.dotStyle}>
+            </TouchableOpacity>
+            <TouchableOpacity  style={styles.dotStyle}>
+            </TouchableOpacity>
+          </View>
 
   <View style={styles.detailsTop}>
     <View>
@@ -41,8 +50,35 @@ const OneDinner = () => {
       <View style={styles.lines}></View>
   </View>
 
+  <View style={styles.detailsTop}>
+    <View>
+        <Text style={styles.bigText}>Agenda</Text>
+        <Text style={styles.detailsHost}>5:00: Doors open</Text>
+        <Text style={styles.detailsHost}>6:00: Dinner</Text>
+        <Text style={styles.detailsHost}>7:30: Drinks</Text>
+        <Text style={styles.detailsHost}>8:30: Board game</Text>
+    </View>  
+  </View>
+
+  <View style={styles.divider}>
+      <View style={styles.lines}></View>
+  </View>
+
+  <View style={styles.detailsTop}>
+    <View>
+        <Text style={styles.bigText}>Location</Text>
+        <View  style={styles.map}>
+        <Image source={require('../assets/images/map.png')}/>
+        </View>
+        <Text style={styles.detailsHost}>Exact location will be shared after confirmation</Text>
+    </View>  
+  </View>
+
+
 </View>
     
+
+
     </ScrollView>
 
     <View  style={styles.cardCont2}>
@@ -100,7 +136,7 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontWeight: 'bold',
       paddingBottom: 4,
-      marginTop: 20,
+      marginTop: 30,
   },
   detailsHost: {
       fontSize: 18,
@@ -154,7 +190,35 @@ const styles = StyleSheet.create({
     interestText: {
       fontWeight: 'bold',
       fontSize: 18,
-    }
+    },
+    dotContainer: {
+      flexDirection: 'row',
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 50,
+      marginTop: -30,
+      height: 20,
+  },
+  dotStyle: {
+      width: 10,
+      height: 10,
+      backgroundColor: '#6750A4',
+      opacity: .4,
+      borderRadius: 50,
+      margin: 2,
+  },
+  bigText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  bottom: {
+    marginBottom: 50,
+  },
+  map: {
+    marginVertical: 10,
+  }
 });
 
 
