@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableWithoutFeedback, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import NavBar from './NavBar'
 import DinnerCard from './DinnerCard'
@@ -22,6 +22,7 @@ const AllDinners = ( props ) => {
           </TouchableWithoutFeedback>
         </View>
       </View>
+
 { filter ? <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
       <View style={styles.filterCont}>
       <View  style={styles.filter}>
@@ -46,7 +47,9 @@ const AllDinners = ( props ) => {
       
 
       <View>
+    <TouchableOpacity onPress={() => navigation.navigate('OneDinner')}>
       <DinnerCard />
+    </TouchableOpacity>
       <DinnerCard />
       <DinnerCard />
       <DinnerCard />
