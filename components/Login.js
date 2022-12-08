@@ -6,10 +6,13 @@ import { Formik } from 'formik';
 import AuthContext from '../context/AuthContext';
 
 const Login = () => {
-  const navigation = useNavigation()
-  const { loginUser } = useContext(AuthContext);
+
+  const navigation = useNavigation();
+
+  const { user, setUser } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [fetchedUsers, setFetchedUsers] = useState([]);
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
   useEffect(() => {
@@ -32,13 +35,36 @@ const Login = () => {
      };
    }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    username.length > 1 && loginUser(username, password);
-    navigation.navigate('Choose')
-  };
+
+    const getUsers = async (e) => {
+        const response = await fetch("https://dinnerapp-backend.herokuapp.com/users/");
+        const allUsers = await response.json()
+        setFetchedUsers(allUsers);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        for (let i =0; i < fetchedUsers.length; i++) {
+            if (fetchedUsers[i].username === username) {
+                await setUser(fetchedUsers[i]);
+                console.log('Set user');
+
+            } else {
+                console.log("Something went wrong!")
+            }
+            
+        }
+        console.log(user);
+        navigation.navigate('Profile');
+    }
+
+    useEffect(() => {
+        getUsers();
+        console.log(JSON.stringify(fetchedUsers));
+    }, []);
 
   return (
+
     <SafeAreaView style={styles.appContainer}>
     <View style={styles.body}>
     { isKeyboardVisible ? <View style={{marginTop: 100}}></View> : null } 

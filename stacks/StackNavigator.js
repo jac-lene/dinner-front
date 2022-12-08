@@ -24,6 +24,7 @@ import Register from '../components/Register';
 import Login from '../components/Login';
 import SplashREAL from '../components/SplashREAL';
 import NavBar from '../components/NavBar';
+import NewProfile from '../components/NewProfile';
 import ProfileView from '../components/ProfileView';
 import Messages from '../components/Messages';
 
@@ -46,6 +47,7 @@ const StackNavigator = ( props ) => {
         <Stack.Group>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Choose" component={Choose}/>
+            <Stack.Screen name="NewProfile" component={NewProfile} />
             <Stack.Screen name="Name" component={Name}/>
             <Stack.Screen name="Photos" component={Photos} />
             <Stack.Screen name="Birthday" component={Birthday} />
