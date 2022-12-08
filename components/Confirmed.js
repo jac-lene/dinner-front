@@ -10,7 +10,7 @@ const Confirmed = () => {
   return (
     <SafeAreaView style={styles.appContainer}>
 
-      <View>
+    <View></View>
 
     <View style={styles.body}>
 
@@ -29,15 +29,15 @@ const Confirmed = () => {
                 <Text style={styles.subHost}>Set reminder</Text>
             </View>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.selectbutton, styles.detailbutton]} onPress={() => navigation.navigate('Name')}>
+            <TouchableOpacity style={[styles.selectbutton, styles.detailbutton]} onPress={() => navigation.navigate('OneDinner')}>
             <View style={styles.selectbuttonText}>
                 <Text style={styles.subHost}>Go to event details</Text>
             </View>
             </TouchableOpacity>
             </View>
 
-        </View>
     </View>
+
     </View>
 
     <NavBar />
@@ -52,10 +52,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   body: {
-    // height: 100,
-    // backgroundColor: 'yellow',
-    marginTop: 150,
+    // justifyContent: 'flex-start',
+    // alignItems: 'center',
     marginHorizontal: 40,
+    // marginVertical: 300,
+    // backgroundColor: 'yellow'
 },
   buttonText: {
       flex: 1,
