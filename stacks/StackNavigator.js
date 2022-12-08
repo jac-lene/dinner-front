@@ -24,16 +24,13 @@ import Register from '../components/Register';
 import Login from '../components/Login';
 import SplashREAL from '../components/SplashREAL';
 import NavBar from '../components/NavBar';
+import ProfileView from '../components/ProfileView';
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = ( props ) => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
-
-        <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
-
-        {/* <Stack.Screen name="NavBar" component={NavBar} /> */}
 
         <Stack.Screen name="SplashScreen" component={SplashREAL} />
 
@@ -59,7 +56,7 @@ const StackNavigator = ( props ) => {
         <Stack.Screen name="Welcome" component={Welcome} />
 
         <Stack.Group>
-           
+            <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
             <Stack.Screen name='OneDinner' component={OneDinner}/>
             <Stack.Screen name='Interested' component={Interested}/>
         </Stack.Group>
@@ -70,7 +67,7 @@ const StackNavigator = ( props ) => {
             <Stack.Screen name='Menu' component={Menu}/>
         </Stack.Group>
 
-        <Stack.Screen name='ProfVer' component={ProfVerify}/>
+        <Stack.Screen name='ProfileView' component={ProfileView}/>
 
         <Stack.Screen name='Chat' component={Chat}/>
 
