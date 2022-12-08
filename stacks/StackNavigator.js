@@ -9,7 +9,6 @@ import Photos from '../components/Photos';
 import Birthday from '../components/Birthday';
 import Gender from '../components/Gender';
 import Location from '../components/Location';
-import AboutMe from '../components/AboutMe';
 import Profile from '../components/Profile';
 import ProfVerify from '../components/ProfVerify';
 import AllDinners from '../components/AllDinners';
@@ -22,14 +21,17 @@ import Chat from '../components/Chat';
 import Splash from '../components/Splash';
 import Name from '../components/Name';
 import SplashREAL from '../components/SplashREAL';
+import NavBar from '../components/NavBar';
 
 const Stack = createNativeStackNavigator();
 
-const StackNavigator = () => {
+const StackNavigator = ( props ) => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
 
-        
+        <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
+
+        {/* <Stack.Screen name="NavBar" component={NavBar} /> */}
 
         <Stack.Screen name="SplashScreen" component={SplashREAL} />
 
@@ -53,7 +55,7 @@ const StackNavigator = () => {
         <Stack.Screen name="Welcome" component={Welcome} />
 
         <Stack.Group>
-            <Stack.Screen name='AllDinners' component={AllDinners}/>
+           
             <Stack.Screen name='OneDinner' component={OneDinner}/>
             <Stack.Screen name='Interested' component={Interested}/>
         </Stack.Group>

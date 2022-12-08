@@ -119,17 +119,17 @@ const Profile = () => {
           
             <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
-                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Google</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Connect Google</Text>
             </View>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
-                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Facebook</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Connect Facebook</Text>
             </View>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
-                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Apple</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Connect Apple</Text>
             </View>
             </TouchableOpacity>
         </View>
