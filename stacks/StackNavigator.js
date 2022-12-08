@@ -33,8 +33,6 @@ const StackNavigator = ( props ) => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
 
-        <Stack.Screen name='Messages' component={Messages} />
-
         <Stack.Screen name="SplashScreen" component={SplashREAL} />
 
         <Stack.Group>
@@ -67,12 +65,13 @@ const StackNavigator = ( props ) => {
         <Stack.Group>
             <Stack.Screen name='Confirmed' component={Confirmed}/>
             <Stack.Screen name='DinnerDetails' component={DinnerDetails}/>
-            <Stack.Screen name='Menu' component={Menu}/>
+            <Stack.Screen name='Chat' component={Chat}/>
+            <Stack.Screen name='Messages' component={Messages} />
         </Stack.Group>
 
         <Stack.Screen name='ProfileView' component={ProfileView}/>
 
-        <Stack.Screen name='Chat' component={Chat}/>
+       
 
       </Stack.Navigator>
   )
