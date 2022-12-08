@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
   },
   mainHeader: {
-    height: 90,
+    height: 100,
     backgroundColor: '#EEE8F4',
     justifyContent: 'center',
     alignItems: 'center',

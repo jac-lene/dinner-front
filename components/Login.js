@@ -55,7 +55,7 @@ const Login = () => {
             
         }
         console.log(user);
-        navigation.navigate('Profile');
+        navigation.navigate('AllDinners');
     }
 
     useEffect(() => {

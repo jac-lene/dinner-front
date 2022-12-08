@@ -21,8 +21,8 @@ export default function App() {
 
 return (
     <NavigationContainer>
+      <StatusBar style="dark"/>
       <AuthProvider>
-        <StatusBar style="light"/>
         <StackNavigator/>
       </AuthProvider>
     </NavigationContainer>
