@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, ScrollView} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
@@ -10,20 +10,26 @@ const Profile = () => {
     style={styles.appContainer}
     >
     <ScrollView>
-
-      <View style={styles.mainHeader}></View>
-
- 
-
+      
+      <View style={styles.mainHeader}>
+        <Text style={styles.mainHeaderText}>My profile</Text>
+      </View>
 
     <View 
     style={styles.body}
     >
 
-      <View style={styles.verifyCont}>
+
+<View style={styles.verifyCont}>
+      <View style={styles.verifyImg}>
       <Image source={require('../assets/images/verify.png')} />
-      <Text style={styles.verify}>Verify my profile</Text>
+      <Text style={styles.verifyText}>Verify my profile</Text>
       </View>
+      <View  style={styles.verifyImg}>
+      <Image source={require('../assets/images/forward.png')} /> 
+      </View>
+</View>
+  
 
       <View style={styles.divider}>
         <View style={styles.lines}></View>
@@ -36,7 +42,13 @@ const Profile = () => {
       <Text style={styles.subHeader}>Add some images of yourself</Text>
       </View>
 
-    
+      <View style={styles.imageForm}>
+
+<View style={styles.image}>
+  <Image source={require('../assets/images/profPic.png')} />
+</View>
+
+</View>
 
 
 
@@ -47,7 +59,7 @@ const Profile = () => {
       
       </View>
 
-        <View style={styles.smallForm}>
+        <View >
         <View style={styles.input}><Text style={styles.inputText}>I have always been an extrovert and love having meaningful conversation with like-minded individuals over cup of coffee or dinner. For the last few years I have avoided holiday family dinners as I feel ostracized by my family. I feel there is a lack of community during Holiday season which I really have been craving. </Text></View>
         </View>
 
@@ -57,48 +69,82 @@ const Profile = () => {
       
       </View>
 
+      <View style={styles.basic}>
+          <View style={styles.basicsRow}>
+            <View style={styles.basicsRow}>
+              <Image source={require('../assets/images/nonbin.png')} />
+              <Text style={styles.basicText}>Nonbinary (They/Them)</Text>
+            </View>
+            <Text style={styles.subHeader}>Change</Text>
+          </View>
 
+          <View style={styles.divider}>
+      <View style={styles.lines}></View>
+        </View>
 
-    <View style={styles.divider}>
+          <View style={styles.basicsRow}>
+            <View style={styles.basicsRow}>
+              <Image source={require('../assets/images/location.png')} />
+              <Text style={styles.basicText}>San Francisco, CA</Text>
+            </View>
+            <Text style={styles.subHeader}>Change</Text>
+          </View>
+
+          <View style={styles.divider}>
       <View style={styles.lines}></View>
     </View>
-    
 
+          <View style={styles.basicsRow}>
+            <View style={styles.basicsRow}>
+              <Image source={require('../assets/images/ethnicity.png')} />
+              <Text style={styles.basicText}>Ethnicity</Text>
+            </View>
+            <Text style={styles.subHeader}>Add</Text>
+          </View>
+
+          <View style={styles.divider}>
+      <View style={styles.lines}></View>
+    </View>
+
+      </View>
+    
+<View style={styles.sectionCont}>
     <View style={styles.section}>
       <Text style={styles.header}>Link other accounts</Text>
       <Text style={styles.subHeader}>(optional)</Text>
       </View>
     </View>
 
-    <View style={styles.auth}>
+    <View >
           
             <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
-                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Google</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Connect Google</Text>
             </View>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
-                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Facebook</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Connect Facebook</Text>
             </View>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button, styles.buttonSocial]} onPress={() => navigation.navigate('Phone')}>
             <View>
-                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Continue with Apple</Text>
+                <Text  style={[styles.buttonText, styles.buttonTextSocial]}>Connect Apple</Text>
             </View>
             </TouchableOpacity>
         </View>
 
-    
-
-    <View style={styles.next}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Profile')}>
+        <View
+        style={styles.next}
+        >
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Welcome')}>
             <View >
-                <Text style={styles.buttonText}>Finish</Text>
+                <Text style={styles.nextButtonText}>Finish</Text>
             </View>
             </TouchableOpacity>
-            
-      </View>
+        </View>
+
+        </View>
       </ScrollView>
     </SafeAreaView>
   )
@@ -110,30 +156,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     // alignItems: 'center',
   },
-  progBarCont: {
-    flexDirection: 'row',
+  mainHeader: {
+    height: 90,
+    backgroundColor: '#EEE8F4',
     justifyContent: 'center',
     alignItems: 'center',
-    // alignSelf: 'stretch',
-    marginTop: 40,
-    marginHorizontal: 45,
-    height: 10,
-    // marginBottom: 200,
-    // backgroundColor: 'yellow'
   },
-  progBar1: {
-    flex: 1,
-    height: 3.5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    marginVertical: 25,
-    borderRadius: 50,
-    backgroundColor: '#6856C4',
+  mainHeaderText: {
+    fontSize: 28,
+    fontWeight: 'bold',
   },
   body: {
     marginHorizontal: 45,
-    marginTop: 50,
+    // marginTop: 50,
     // paddingBottom: 100,
     // backgroundColor: 'yellow'
 },
@@ -141,6 +176,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: 'bold',
     marginRight: 5,
+    paddingVertical:5,
     // backgroundColor: 'orange'
   },
   subHeader: {
@@ -148,28 +184,28 @@ const styles = StyleSheet.create({
     // marginVertical: 10,
   },
   next: {
-    paddingBottom: 150,
-    paddingLeft: 280,
+    paddingBottom: 100,
+    paddingLeft: 270,
   },
-  button: {
+  nextButton: {
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 25,
       height: 45,
-      marginHorizontal: 45,
-      marginVertical: 10,
+      marginVertical: 35,
       width: 100,
-      backgroundColor: '#6750A4',
+      backgroundColor: '#9747FF',
     },
-  buttonText: {
+  nextButtonText: {
       fontSize: 20,
       fontWeight: 'semibold',
       color: '#fff',
   },
   input: {
     alignSelf: 'stretch',
-    borderRadius: 10,
-    marginVertical: 10,
+    borderRadius: 15,
+    marginVertical: 20,
+    marginHorizontal: 5,
     borderColor: 'grey',
     borderWidth: 1,
     justifyContent: 'center',
@@ -193,7 +229,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 50,
     height: 45,
-    marginHorizontal: 45,
+    // marginHorizontal: 45,
     marginVertical: 15,
   }, 
 buttonSignUp: {
@@ -210,9 +246,6 @@ buttonTextSocial: {
     fontSize: 20,
     color: 'black',
 },
-auth: {
-  // backgroundColor: 'yellow'
-},
 divider: {
   flexDirection: 'row',
 },
@@ -226,11 +259,12 @@ lines: {
 },
 section: {
   flexDirection: 'row',
-  // justifyContent: 'flex-start',
   alignItems: 'center',
-  marginHorizontal: 45,
 },
-verify: {
+sectionCont: {
+
+},
+verifyText: {
   fontSize: 20,
   fontWeight: 'bold',
   marginLeft: 5,
@@ -238,6 +272,40 @@ verify: {
 verifyCont: {
   flexDirection: 'row',
   alignItems: 'center',
+  justifyContent: 'space-between',
+},
+verifyImg: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginTop: 20,
+},
+imageForm: {
+  justifyContent:'center',
+  alignItems:'center',
+},
+image: {
+height: 144,
+width: 144,
+justifyContent:'center',
+alignItems:'center',
+borderRadius: 10,
+marginVertical: 20,
+},
+imageText: {
+fontSize: 50,
+color: '#6750A4',
+},
+basic: {
+  marginTop: 20,
+},
+basicsRow: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+},
+basicText: {
+  fontSize: 22,
+  marginHorizontal: 8,
 }
 });
 

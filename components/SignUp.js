@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
@@ -79,8 +79,7 @@ const SignUp = () => {
     <View style={styles.body}>
 
       <View style={styles.logo}>
-        <TouchableOpacity style={styles.dotStyle}></TouchableOpacity>
-        <Text style={styles.logoText}>Fam</Text>
+        <Image source={require('../assets/images/logo.png')} />
       </View>
 
       <Text style={styles.header}>Hello there!</Text>
@@ -189,7 +188,7 @@ const styles = StyleSheet.create({
       marginVertical: 15,
     }, 
   buttonSignUp: {
-    backgroundColor: '#6750A4',
+    backgroundColor: '#9747FF',
   },
   buttonSocial: {
     backgroundColor: '#E8DEF8',

@@ -9,7 +9,6 @@ import Photos from '../components/Photos';
 import Birthday from '../components/Birthday';
 import Gender from '../components/Gender';
 import Location from '../components/Location';
-import AboutMe from '../components/AboutMe';
 import Profile from '../components/Profile';
 import ProfVerify from '../components/ProfVerify';
 import AllDinners from '../components/AllDinners';
@@ -23,14 +22,23 @@ import Splash from '../components/Splash';
 import Name from '../components/Name';
 import Register from '../components/Register';
 import Login from '../components/Login';
+import SplashREAL from '../components/SplashREAL';
+import NavBar from '../components/NavBar';
 
 const Stack = createNativeStackNavigator();
 
-const StackNavigator = () => {
+const StackNavigator = ( props ) => {
   return (
     <Stack.Navigator screenOptions={ {headerShown: false }}>
+
+        <Stack.Screen name='AllDinners' navbar={props.navbar} component={AllDinners}/>
+
+        {/* <Stack.Screen name="NavBar" component={NavBar} /> */}
+
+        <Stack.Screen name="SplashScreen" component={SplashREAL} />
+
         <Stack.Group>
-            <Stack.Screen name="SplashScreen" component={Splash} />
+            <Stack.Screen name="Start" component={Splash} />
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="Phone" component={Phone} />
             <Stack.Screen name="Verify" component={Verify}/>
@@ -48,12 +56,10 @@ const StackNavigator = () => {
             <Stack.Screen name="Profile" component={Profile} />
         </Stack.Group>
 
-        <Stack.Group>
-            <Stack.Screen name='ProfVer' component={ProfVerify}/>
-        </Stack.Group>
+        <Stack.Screen name="Welcome" component={Welcome} />
 
         <Stack.Group>
-            <Stack.Screen name='AllDinners' component={AllDinners}/>
+           
             <Stack.Screen name='OneDinner' component={OneDinner}/>
             <Stack.Screen name='Interested' component={Interested}/>
         </Stack.Group>
@@ -64,10 +70,10 @@ const StackNavigator = () => {
             <Stack.Screen name='Menu' component={Menu}/>
         </Stack.Group>
 
-        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name='ProfVer' component={ProfVerify}/>
 
         <Stack.Screen name='Chat' component={Chat}/>
-        
+
       </Stack.Navigator>
   )
 }

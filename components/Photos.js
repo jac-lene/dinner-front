@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
   },
   body: {
     marginHorizontal: 40,
-    marginTop: 150,
-    // paddingBottom: 300,
+    marginTop: 100,
+    paddingBottom: 30,
     // backgroundColor: 'yellow'
 },
   header: {
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 45,
       marginVertical: 10,
       width: 100,
-      backgroundColor: '#6750A4',
+      backgroundColor: '#9747FF',
     },
   buttonSocial: {
       justifyContent: 'center',
