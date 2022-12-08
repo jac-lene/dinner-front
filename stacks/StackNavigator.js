@@ -20,9 +20,13 @@ import Menu from '../components/Menu';
 import Chat from '../components/Chat';
 import Splash from '../components/Splash';
 import Name from '../components/Name';
+import Register from '../components/Register';
+import Login from '../components/Login';
 import SplashREAL from '../components/SplashREAL';
 import NavBar from '../components/NavBar';
+import NewProfile from '../components/NewProfile';
 import ProfileView from '../components/ProfileView';
+import Messages from '../components/Messages';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,12 +39,15 @@ const StackNavigator = ( props ) => {
         <Stack.Group>
             <Stack.Screen name="Start" component={Splash} />
             <Stack.Screen name="SignUp" component={SignUp} />
+            <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Phone" component={Phone} />
             <Stack.Screen name="Verify" component={Verify}/>
         </Stack.Group>
         
         <Stack.Group>
+            <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Choose" component={Choose}/>
+            <Stack.Screen name="NewProfile" component={NewProfile} />
             <Stack.Screen name="Name" component={Name}/>
             <Stack.Screen name="Photos" component={Photos} />
             <Stack.Screen name="Birthday" component={Birthday} />
@@ -60,12 +67,13 @@ const StackNavigator = ( props ) => {
         <Stack.Group>
             <Stack.Screen name='Confirmed' component={Confirmed}/>
             <Stack.Screen name='DinnerDetails' component={DinnerDetails}/>
-            <Stack.Screen name='Menu' component={Menu}/>
+            <Stack.Screen name='Chat' component={Chat}/>
+            <Stack.Screen name='Messages' component={Messages} />
         </Stack.Group>
 
         <Stack.Screen name='ProfileView' component={ProfileView}/>
 
-        <Stack.Screen name='Chat' component={Chat}/>
+       
 
       </Stack.Navigator>
   )

@@ -1,9 +1,17 @@
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { useState } from 'react';
 
 const Choose = () => {
   const navigation = useNavigation()
+  const [isHost, setIsHost] = useState(false);
+
+  const chooseHost = async (e) => {
+    e.preventDefault();
+    setIsHost(true);
+    navigation.navigate('Name');
+  }
 
   return (
     <SafeAreaView 
@@ -21,7 +29,7 @@ const Choose = () => {
       <Text style={styles.subHeader}>Help us determine how you will navigate the app.</Text>
 
     <View>
-            <TouchableOpacity style={[styles.button, styles.buttonHost]} onPress={() => navigation.navigate('Name')}>
+            <TouchableOpacity style={[styles.button, styles.buttonHost]} onPress={chooseHost}>
             <View style={styles.buttonText}>
                 <Text style={[styles.textHost]}>Host</Text>
                 <Text style={styles.subHost}>I’m looking to host a dinner/event</Text>

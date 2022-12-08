@@ -1,33 +1,66 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, TextInput, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { useState, useEffect } from 'react';
 
 const Name = () => {
   const navigation = useNavigation()
+  const [firstName, setFirstName] = useState("")
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+ useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setKeyboardVisible(true); // or some other action
+      }
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        setKeyboardVisible(false); // or some other action
+      }
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
 
   return (
     <SafeAreaView 
     style={styles.appContainer}
     >
 
-      <View style={styles.progBarCont}>
+   { !isKeyboardVisible ?  <View style={styles.progBarCont}>
         <View style={styles.progBar1}></View>
         <View style={styles.progBar2}></View>
-      </View>
+      </View> : <View style={{marginTop: 100}}></View> } 
 
     <View style={styles.body}>
 
       <Text style={styles.header}>What is your name?</Text>
 
+          
       <View style={styles.nameForm}>
 
         <Text style={styles.formText}>First Name</Text>
-        <View style={styles.input}></View>
+
+            <View>
+          <TextInput 
+              style={[styles.input, {paddingHorizontal: 20}]}
+              placeholder={"First Name"}
+              label={"First Name"}
+              onChangeText={newText => setFirstName(newText)}
+          />
+          </View>
+
         <Text style={styles.formText}>Last Name</Text>
         <View style={styles.input}></View>
 
     </View>
-
+    
     </View>
 
     
@@ -86,7 +119,7 @@ const styles = StyleSheet.create({
   body: {
     marginHorizontal: 40,
     // paddingBottom: 300,
-    // backgroundColor: 'yellow'
+    // backgroundColor: '#fff'
 },
   header: {
     fontSize: 40,

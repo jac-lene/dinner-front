@@ -1,9 +1,36 @@
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, ScrollView} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { useContext, useState, useEffect } from 'react';
+import AuthContext from '../context/AuthContext';
 
 const Profile = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
+  const { user } = useContext(AuthContext);
+  const [profile, setProfile] = useState({});
+  const [fetchedProfiles, setFetchedProfiles] = useState([]);
+
+  const test = () => {
+    console.log(profile);
+  }
+
+  const getProfiles = async () => {
+    const response = await fetch('https://dinnerapp-backend.herokuapp.com/profiles/');
+    const allProfiles = await response.json();
+    setFetchedProfiles(allProfiles);
+  }
+
+
+  useEffect(() => {
+    getProfiles();
+    for (let i = 0; i < fetchedProfiles.length; i++) {
+      if (fetchedProfiles[i].user == user.id) {
+        setProfile(fetchedProfiles[i]);
+      } else {
+        console.log("No profile associated with this user");
+      }
+    }
+  }, []);
 
   return (
     <SafeAreaView 
@@ -12,7 +39,8 @@ const Profile = () => {
     <ScrollView>
       
       <View style={styles.mainHeader}>
-        <Text style={styles.mainHeaderText}>My profile</Text>
+        <Text style={styles.mainHeaderText}>My Profile</Text>
+        <Text>Logged in as {`${user.username}`}</Text>
       </View>
 
     <View 
@@ -137,7 +165,7 @@ const Profile = () => {
         <View
         style={styles.next}
         >
-            <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Welcome')}>
+            <TouchableOpacity style={styles.nextButton} onPress={test}>
             <View >
                 <Text style={styles.nextButtonText}>Finish</Text>
             </View>
